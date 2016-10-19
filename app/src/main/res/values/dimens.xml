@@ -2,4 +2,18 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Register dimens -->
+    <dimen name="form_margin_top">25dp</dimen>
+    <dimen name="form_name_margin_top">10dp</dimen>
+    <dimen name="form_name_margin_bottom">10dp</dimen>
+    <dimen name="form_component_margin_top">5dp</dimen>
+    <dimen name="form_component_margin_bottom">5dp</dimen>
+
+    <!-- Component customTextEdit dimens -->
+    <dimen name="custom_text_edit_padding_top">10dp</dimen>
+    <dimen name="custom_text_edit_padding_bottom">10dp</dimen>
+    <dimen name="custom_text_edit_padding_left">20dp</dimen>
+    <dimen name="custom_text_edit_padding_right">20dp</dimen>
+    <dimen name="custom_text_edit_padding_radius">5dp</dimen>
 </resources>
