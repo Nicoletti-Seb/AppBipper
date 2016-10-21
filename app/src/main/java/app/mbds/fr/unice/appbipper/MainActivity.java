@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // Listener button
         Button register = (Button)findViewById(R.id.register);
-        Button login = (Button)findViewById(R.id.login);
+        Button login = (Button)findViewById(R.id.sign);
         register.setOnClickListener(this);
         login.setOnClickListener(this);
     }
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(MainActivity.this, RegisterActivity.class));
                 break;
 
-            case R.id.login:
+            case R.id.sign:
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 break;
         }
