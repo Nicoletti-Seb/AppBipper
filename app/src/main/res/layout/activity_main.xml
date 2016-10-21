@@ -40,13 +40,18 @@
         android:layout_below="@id/menu_tooltip"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="@string/register"/>
+        android:text="@string/register"
+        android:background="@drawable/custom_button_blue"
+        style="@style/button_blue"/>
 
     <Button
         android:id="@+id/sign"
         android:layout_below="@id/register"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="@string/sign"/>
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:text="@string/sign"
+        android:background="@drawable/custom_button_white"
+        style="@style/button_white"/>
 
 </RelativeLayout>
