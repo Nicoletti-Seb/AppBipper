@@ -13,6 +13,8 @@
     <string name="register_email">E-mail</string>
     <string name="register_password">Mot de passe</string>
     <string name="register_password_verify">Confirmation mot de passe</string>
+    <string name="please_wait">Loading...</string>
+    <string name="inscription_ok">Inscription terminée !</string>
 
     <!-- main activity -->
     <string name="welcome">Bienvenue</string>
@@ -33,4 +35,10 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+
+    <!-- URL -->
+    <string name="url_server">http://95.142.161.35:1337/</string>
+    <string name="url_service_person">person/</string>
+    
 </resources>

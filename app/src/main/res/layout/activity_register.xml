@@ -66,17 +66,16 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_below="@id/register_firstname"
-                android:layout_alignParentLeft="true">
+                android:layout_alignParentLeft="true"
+                android:checkedButton="@+id/register_radio_male">
                 <RadioButton android:id="@+id/register_radio_male"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/register_male"
-                    android:onClick="onRadioButtonClicked"/>
+                    android:text="@string/register_male"/>
                 <RadioButton android:id="@+id/register_radio_female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/register_female"
-                    android:onClick="onRadioButtonClicked"/>
+                    android:text="@string/register_female"/>
             </RadioGroup>
 
 

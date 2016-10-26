@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
+    useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "app.mbds.fr.unice.appbipper"
         minSdkVersion 21
@@ -17,7 +18,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    useLibrary("org.apache.http.legacy")
 }
 
 dependencies {
