@@ -3,7 +3,7 @@ package app.mbds.fr.unice.appbipper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class menu extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
