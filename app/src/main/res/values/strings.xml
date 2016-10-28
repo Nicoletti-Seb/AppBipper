@@ -40,5 +40,11 @@
     <!-- URL -->
     <string name="url_server">http://95.142.161.35:1337/</string>
     <string name="url_service_person">person/</string>
+
+    <!-- list activity -->
+    <string name="add_server">Ajouter un serveur</string>
+    <string name="title_activity_list">ListActivity</string>
+    <string name="hello_round">Hello Round World!</string>
+    <string name="hello_square">Hello Square World!</string>
     
 </resources>
