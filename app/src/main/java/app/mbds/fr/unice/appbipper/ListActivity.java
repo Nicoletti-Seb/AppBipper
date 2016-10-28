@@ -98,12 +98,12 @@ public class ListActivity extends Activity {
                 System.out.println("o"+i+" :: "+ob.toString());
 
                 Person p = new Person();
-                p.setLastname((String) ob.get("nom"));
-                p.setFirstname((String) ob.get("prenom"));
-                p.setMail((String) ob.get("email"));
+                p.setNom((String) ob.get("nom"));
+                p.setPrenom((String) ob.get("prenom"));
+                p.setEmail((String) ob.get("email"));
                 p.setPassword((String) ob.get("password"));
-                p.setSex((String) ob.get("sexe"));
-                p.setPhone((String) ob.get("telephone"));
+                p.setSexe((String) ob.get("sexe"));
+                p.setTelephone((String) ob.get("telephone"));
                 p.setCreatedBy((String) ob.get("createdBy"));
 
                 person.add(p);

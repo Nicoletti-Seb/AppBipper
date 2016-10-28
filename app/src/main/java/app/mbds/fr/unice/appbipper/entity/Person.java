@@ -6,53 +6,33 @@ package app.mbds.fr.unice.appbipper.entity;
 
 public class Person {
 
-    private String lastname;
-    private String firstname;
-    private String sex;
-    private String phone;
-    private String mail;
+    private String nom;
+    private String prenom;
+    private String sexe;
+    private String telephone;
+    private String email;
     private String createdBy;
     private String password;
 
-    public String getLastname() {
-        return lastname;
-    }
+    public String getNom() {return nom;}
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
+    public void setNom(String nom) {this.nom = nom;}
 
-    public String getFirstname() {
-        return firstname;
-    }
+    public String getPrenom() {return prenom;}
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
+    public void setPrenom(String prenom) {this.prenom = prenom;}
 
-    public String getSex() {
-        return sex;
-    }
+    public String getSexe() {return sexe;}
 
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
+    public void setSexe(String sexe) {this.sexe = sexe;}
 
-    public String getPhone() {
-        return phone;
-    }
+    public String getTelephone() {return telephone;}
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+    public void setTelephone(String telephone) {this.telephone = telephone;}
 
-    public String getMail() {
-        return mail;
-    }
+    public String getEmail() {return email;}
 
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
+    public void setEmail(String email) {this.email = email;}
 
     public String getCreatedBy() {
         return createdBy;

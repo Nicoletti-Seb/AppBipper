@@ -64,16 +64,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
 
         Person person = new Person();
-        person.setLastname(lastname.getText().toString());
-        person.setFirstname(firstname.getText().toString());
-        person.setPhone(phone.getText().toString());
-        person.setMail(email.getText().toString());
+        person.setNom(lastname.getText().toString());
+        person.setPrenom(firstname.getText().toString());
+        person.setTelephone(phone.getText().toString());
+        person.setEmail(email.getText().toString());
         person.setPassword(passString);
-        person.setCreatedBy(person.getFirstname());
+        person.setCreatedBy(person.getPrenom());
 
         int idRadio = radioGroup.getCheckedRadioButtonId();
         RadioButton radioGender = (RadioButton) findViewById(idRadio);
-        person.setSex(radioGender.getText().toString());
+        person.setSexe(radioGender.getText().toString());
 
         new RegisterTask().execute(person);
     }
