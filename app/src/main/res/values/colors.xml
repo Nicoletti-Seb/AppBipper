@@ -2,4 +2,8 @@
 <resources>
     <color name="colorPrimary">#3DCCFE</color>
     <color name="colorRegisterInput">#EAEAEA</color>
+    <color name="colorGrey">#CCCCCC</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGreen">#5cb85c</color>
+    <color name="colorRed">#c9302c</color>
 </resources>

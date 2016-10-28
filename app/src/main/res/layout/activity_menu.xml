@@ -19,4 +19,13 @@
         android:textStyle="bold"
         android:gravity="center|bottom"/>
 
+    <Button
+        android:id="@+id/button_list"
+        android:layout_below="@id/welcome"
+        android:text="Go to list"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_button_white"
+        style="@style/button_white" />
+
 </RelativeLayout>

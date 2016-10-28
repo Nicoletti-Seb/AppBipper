@@ -33,4 +33,10 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="title_activity_list">ListActivity</string>
+    <string name="hello_round">Hello Round World!</string>
+    <string name="hello_square">Hello Square World!</string>
+
+    <!-- list activity -->
+    <string name="add_server">Ajouter un serveur</string>
 </resources>
