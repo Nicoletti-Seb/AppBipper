@@ -105,6 +105,7 @@ public class ListActivity extends Activity {
                 p.setSexe((String) ob.get("sexe"));
                 p.setTelephone((String) ob.get("telephone"));
                 p.setCreatedBy((String) ob.get("createdBy"));
+                p.setConnected((boolean) ob.get("connected"));
 
                 person.add(p);
             }

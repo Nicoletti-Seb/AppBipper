@@ -6,29 +6,18 @@
 
     <!-- Placez vos éléments ici -->
     <ImageView
-        android:background="@drawable/circle_icon_grey"
-        android:id="@+id/icon"
+        android:id="@+id/isconnected"
         android:layout_width="100dp"
         android:layout_height="100dp" />
 
     <TextView
         android:id="@+id/txt_nom_prenom"
         android:text="Nom Prenom"
-        android:layout_toRightOf="@+id/icon"
+        android:layout_toRightOf="@+id/isconnected"
         android:textSize="20dp"
         android:layout_marginLeft="20dp"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="bottom"/>
-
-    <TextView
-        android:id="@+id/txt_date_inscription"
-        android:text="date inscription"
-        android:layout_toRightOf="@+id/icon"
-        android:layout_below="@+id/txt_nom_prenom"
-        android:layout_marginLeft="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="100dp"
         android:gravity="center_vertical"/>
 
 </RelativeLayout>

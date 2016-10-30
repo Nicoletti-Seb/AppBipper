@@ -1,10 +1,14 @@
 package app.mbds.fr.unice.appbipper.adapter;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -42,27 +46,33 @@ public class PersonItemAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup arg2) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         View v = convertView;
 
         PersonViewHolder viewHolder = null;
-        if (v == null) {
-            v = View.inflate(context, R.layout.activity_list, null);
-            viewHolder = new PersonViewHolder(); //new CommentListViewHolder();
-            viewHolder.nom_prenom = (TextView) v.findViewById(R.id.txt_nom_prenom);
-            viewHolder.date_creation = (TextView) v.findViewById(R.id.txt_date_inscription);
+        if(v==null){
+            v = View.inflate(context, R.layout.element_layout, null);
+            viewHolder = new PersonViewHolder();
+            viewHolder.nom_prenom= (TextView)v.findViewById(R.id.txt_nom_prenom);
+            viewHolder.connected = (ImageView)v.findViewById(R.id.isconnected);
             v.setTag(viewHolder);
-        } else {
-            //viewHolder = (CommentListViewHolder) v.getTag();
         }
-        /*Person person = person.get(position);
-        viewHolder.nom_prenom.setText(comment.getComment_body_value());
-        viewHolder.date_creation.setText(comment.getName());*/
+        else{
+            viewHolder = (PersonViewHolder) v.getTag();
+        }
+        Person pers = person.get(position);
+        viewHolder.nom_prenom.setText(pers.getFullName());
+        if(pers.isConnected()) {
+            viewHolder.connected.setImageResource(R.drawable.circle_icon_green);
+        } else {
+            viewHolder.connected.setImageResource(R.drawable.circle_icon_grey);
+        }
         return v;
     }
 
-    class PersonViewHolder {
+    class PersonViewHolder{
         TextView nom_prenom;
-        TextView date_creation;
+        ImageView connected;
     }
 }
+
