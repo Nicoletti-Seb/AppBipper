@@ -15,9 +15,18 @@
         android:text="Nom Prenom"
         android:layout_toRightOf="@+id/isconnected"
         android:textSize="20dp"
-        android:layout_marginLeft="20dp"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:gravity="center_vertical"/>
+
+    <ImageButton
+        android:id="@+id/delete_btn"
+        android:layout_width="50dp"
+        android:layout_height="100dp"
+        android:paddingRight="10dp"
+        android:layout_alignParentRight="true"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_remove_black_24dp"
+        android:onClick=""/>
 
 </RelativeLayout>
