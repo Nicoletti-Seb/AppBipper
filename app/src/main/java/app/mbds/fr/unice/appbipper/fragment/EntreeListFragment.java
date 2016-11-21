@@ -14,17 +14,22 @@ import app.mbds.fr.unice.appbipper.R;
  */
 public class EntreeListFragment extends Fragment {
 
-
-    public EntreeListFragment() {
-        // Required empty public constructor
-    }
-
+    private String name;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        //name = getResources().getString(R.string.title_fragment_entrees);
+        this.name = "Entrées"; // TODO
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_entree_list, container, false);
+    }
+
+
+    @Override
+    public String toString() {
+        return name;
     }
 
 }
