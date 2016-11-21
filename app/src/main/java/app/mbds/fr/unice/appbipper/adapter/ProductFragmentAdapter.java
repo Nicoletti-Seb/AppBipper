@@ -18,7 +18,7 @@ public class ProductFragmentAdapter extends FragmentStatePagerAdapter {
     private List<Fragment> fragments;
     private List<String> titles;
 
-    public ProductFragmentAdapter(FragmentManager fm, List<Fragment> fragments, List<String> titles;){
+    public ProductFragmentAdapter(FragmentManager fm, List<Fragment> fragments, List<String> titles){
         super(fm);
         this.fragments = fragments;
         this.titles = titles;

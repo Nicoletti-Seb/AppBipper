@@ -57,7 +57,7 @@ public class ListActivity extends Activity {
                 get.setHeader("Content-Type", "application/json");
 
                 HttpResponse response = client.execute(get);
-                System.out.println("\nSending 'POST' request to URL : " + urlList);
+                System.out.println("\nSending 'GET' request to URL : " + urlList);
                 System.out.println("Response Code : " + response.getStatusLine().getStatusCode());
 
                 BufferedReader rd = new BufferedReader(
