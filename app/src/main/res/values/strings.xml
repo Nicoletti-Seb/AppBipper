@@ -63,4 +63,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- fragments -->
+    <string name="title_fragment_appetizer">Appéritifs</string>
+    <string name="title_fragment_desserts">Desserts</string>
+    <string name="title_fragment_dishes">Plats</string>
+    <string name="title_fragment_entrees">Entrées</string>
+    <string name="validate_list_products">Valider</string>
+
+
 </resources>

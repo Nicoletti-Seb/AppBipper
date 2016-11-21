@@ -5,33 +5,34 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import java.util.List;
-import java.util.Map;
-
-import app.mbds.fr.unice.appbipper.entity.Product;
 
 /**
  * Created by 53js-Seb on 21/11/2016.
  */
 
-public class ProductFragmentAdapter extends FragmentStatePagerAdapter {
+public class ProductListAdapter extends FragmentStatePagerAdapter {
 
     private List<Fragment> fragments;
-    private List<String> titles;
 
-    public ProductFragmentAdapter(FragmentManager fm, List<Fragment> fragments, List<String> titles;){
+    public ProductListAdapter(FragmentManager fm, List<Fragment> fragments){
         super(fm);
         this.fragments = fragments;
-        this.titles = titles;
     }
 
 
     @Override
     public Fragment getItem(int position) {
-        return null;
+        return fragments.get(position);
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return fragments.size();
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+
+        return fragments.toString();
     }
 }
