@@ -98,6 +98,7 @@ public class ListActivity extends Activity {
                 System.out.println("o"+i+" :: "+ob.toString());
 
                 Person p = new Person();
+                p.setId((String) ob.get("id"));
                 p.setNom((String) ob.get("nom"));
                 p.setPrenom((String) ob.get("prenom"));
                 p.setEmail((String) ob.get("email"));
@@ -105,12 +106,13 @@ public class ListActivity extends Activity {
                 p.setSexe((String) ob.get("sexe"));
                 p.setTelephone((String) ob.get("telephone"));
                 p.setCreatedBy((String) ob.get("createdBy"));
+                p.setConnected((boolean) ob.get("connected"));
 
                 person.add(p);
             }
+
             PersonItemAdapter adapter = new PersonItemAdapter(ListActivity.this, person);
             lst.setAdapter(adapter);
-
         }
     }
 }
