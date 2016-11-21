@@ -1,13 +1,41 @@
 package app.mbds.fr.unice.appbipper.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.List;
+import com.google.gson.Gson;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.w3c.dom.Text;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import app.mbds.fr.unice.appbipper.LoginActivity;
+import app.mbds.fr.unice.appbipper.MenuActivity;
 import app.mbds.fr.unice.appbipper.R;
 import app.mbds.fr.unice.appbipper.entity.Person;
 
@@ -42,27 +70,88 @@ public class PersonItemAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup arg2) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         View v = convertView;
 
         PersonViewHolder viewHolder = null;
-        if (v == null) {
-            v = View.inflate(context, R.layout.activity_list, null);
-            viewHolder = new PersonViewHolder(); //new CommentListViewHolder();
-            viewHolder.nom_prenom = (TextView) v.findViewById(R.id.txt_nom_prenom);
-            viewHolder.date_creation = (TextView) v.findViewById(R.id.txt_date_inscription);
+        if(v==null){
+            v = View.inflate(context, R.layout.element_layout, null);
+            viewHolder = new PersonViewHolder();
+            viewHolder.nom_prenom= (TextView)v.findViewById(R.id.txt_nom_prenom);
+            viewHolder.connected = (ImageView)v.findViewById(R.id.isconnected);
             v.setTag(viewHolder);
-        } else {
-            //viewHolder = (CommentListViewHolder) v.getTag();
+
+            ImageButton ib = (ImageButton)v.findViewById(R.id.delete_btn);
+
+            ib.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Person pers = person.get(position);
+                    System.out.println("Click pers: " + pers);
+
+                    DeleteUserTask mAuthTask = new DeleteUserTask(pers);
+                    mAuthTask.execute((Void) null);
+                }
+            });
         }
-        /*Person person = person.get(position);
-        viewHolder.nom_prenom.setText(comment.getComment_body_value());
-        viewHolder.date_creation.setText(comment.getName());*/
+        else{
+            viewHolder = (PersonViewHolder) v.getTag();
+        }
+
+        Person pers = person.get(position);
+        viewHolder.nom_prenom.setText(pers.getFullName());
+        if(pers.isConnected()) {
+            viewHolder.connected.setImageResource(R.drawable.circle_icon_green);
+        } else {
+            viewHolder.connected.setImageResource(R.drawable.circle_icon_grey);
+        }
         return v;
     }
 
-    class PersonViewHolder {
+    class PersonViewHolder{
         TextView nom_prenom;
-        TextView date_creation;
+        ImageView connected;
+    }
+
+    public class DeleteUserTask extends AsyncTask<Object, Object, String> {
+
+        private Person personne;
+
+        DeleteUserTask(Person personne) {
+            this.personne = personne;
+        }
+        @Override
+        protected String doInBackground(Object... params) {
+
+            //Delete request
+            try {
+                URL url = new URL(context.getString(R.string.url_server) + context.getString(R.string.url_service_person) + personne.getId());
+                System.out.println("url delete: " + url);
+                
+                HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+                connection.setRequestMethod("DELETE");
+                connection.connect();
+
+                String result = "" + connection.getResponseCode();
+                System.out.println("Response :"+result);
+
+                return result;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
+            }            
+        }
+
+        @Override
+        protected void onPostExecute(final String success) {
+            System.out.println("success :"+success);
+
+            if(success.equals("200")) {
+                person.remove(personne);
+                PersonItemAdapter.this.notifyDataSetChanged();
+            }
+
+        }
     }
 }
+

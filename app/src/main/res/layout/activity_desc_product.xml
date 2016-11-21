@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_desc_product"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="app.mbds.fr.unice.appbipper.fragment.DescProduct">
+
+    <TextView
+        android:id="@+id/txt_title_product"
+        android:text="@string/txt_title_product"
+        android:textSize="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+
+    <ImageView
+        android:id="@+id/img_image_product"
+        android:layout_below="@+id/txt_title_product"
+        android:layout_width="match_parent"
+        android:layout_height="180dp" />
+
+    <TableLayout
+        android:id="@+id/txt_info_product"
+        android:layout_below="@+id/img_image_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TableRow>
+            <TextView
+                android:id="@+id/txt_price"
+                android:text="@string/txt_price"
+                android:layout_width="100dp"
+                android:padding="10dp"/>
+            <TextView
+                android:id="@+id/txt_price_value"
+                android:text="@string/txt_value"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/txt_calories"
+                android:text="@string/txt_calories"
+                android:padding="10dp"/>
+            <TextView
+                android:id="@+id/txt_calories_value"
+                android:text="@string/txt_value"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/txt_type"
+                android:text="@string/txt_type"
+                android:padding="10dp"/>
+            <TextView
+                android:id="@+id/txt_type_value"
+                android:text="@string/txt_value"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/txt_discount"
+                android:text="@string/txt_discount"
+                android:padding="10dp"/>
+            <TextView
+                android:id="@+id/txt_discount_value"
+                android:text="@string/txt_value"/>
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/btn_add_product"
+        android:layout_below="@+id/txt_info_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_add_product"/>
+
+</RelativeLayout>

@@ -70,5 +70,13 @@
     <string name="title_fragment_entrees">Entrées</string>
     <string name="validate_list_products">Valider</string>
 
+    <!-- activity_desc_product -->
+    <string name="txt_title_product">Title</string>
+    <string name="txt_price">Price</string>
+    <string name="txt_calories">Calories</string>
+    <string name="txt_type">Type</string>
+    <string name="txt_discount">Discount</string>
+    <string name="txt_value">value</string>
+    <string name="btn_add_product">Ajouter</string>
 
 </resources>
