@@ -96,7 +96,9 @@ public class DescProduct extends AppCompatActivity {
             Gson gson = new Gson();
             Product product = gson.fromJson(theResponse, Product.class);
 
-            //txt_title_product =
+            //txt_title_product = product.getName();
+            //img_image_product = product.getPicture();
+
         }
     }
 }
