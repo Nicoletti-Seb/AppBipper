@@ -15,13 +15,19 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
         Button gotolist = (Button)findViewById(R.id.button_list);
         gotolist.setOnClickListener(this);
+
+        Button btnCreateMenu = (Button)findViewById(R.id.button_create_menu);
+        btnCreateMenu.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_list:
-                startActivity(new Intent(MenuActivity.this, ListActivity.class));
+                startActivity(new Intent(this, ListActivity.class));
+                break;
+            case R.id.button_create_menu:
+                startActivity(new Intent(this, OrderActivity.class));
                 break;
         }
     }
