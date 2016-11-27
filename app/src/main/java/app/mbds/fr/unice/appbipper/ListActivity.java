@@ -1,8 +1,11 @@
 package app.mbds.fr.unice.appbipper;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -30,7 +33,7 @@ import app.mbds.fr.unice.appbipper.entity.Login;
 import app.mbds.fr.unice.appbipper.entity.Person;
 import app.mbds.fr.unice.appbipper.service.ListingTask;
 
-public class ListActivity extends Activity {
+public class ListActivity extends Activity implements View.OnClickListener {
 
     private ListingTask mListingTask = null;
 
@@ -41,6 +44,18 @@ public class ListActivity extends Activity {
 
         mListingTask = new ListingTask(this);
         mListingTask.execute((Void) null);
+
+        // Listener button
+        Button addServer = (Button)findViewById(R.id.add_server);
+        addServer.setOnClickListener(this);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.add_server:
+                startActivity(new Intent(ListActivity.this, RegisterActivity.class));
+                break;
+        }
+    }
 }

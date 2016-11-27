@@ -36,7 +36,8 @@ public class ListingTask extends AsyncTask<Void, Void, String> {
     @Override
     protected String doInBackground(Void... params) {
         //Effectuer la requete vers les WS ici
-        String urlList = "http://95.142.161.35:1337/person";
+        String urlList = mListActivity.getString(R.string.url_server) + mListActivity.getString(R.string.url_service_person);
+                //"http://95.142.161.35:1337/person";
 
         try {
             HttpClient client = new DefaultHttpClient();
