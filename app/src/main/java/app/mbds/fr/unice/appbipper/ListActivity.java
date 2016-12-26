@@ -47,7 +47,9 @@ public class ListActivity extends Activity {
         @Override
         protected String doInBackground(Void... params) {
             //Effectuer la requete vers les WS ici
-            String urlList = "http://95.142.161.35:1337/person";
+            String url = getResources().getString(R.string.url_server);
+            String service = getResources().getString(R.string.url_service_person);
+            String urlList = url + service;
 
             try {
                 HttpClient client = new DefaultHttpClient();
@@ -98,7 +100,7 @@ public class ListActivity extends Activity {
                 System.out.println("o"+i+" :: "+ob.toString());
 
                 Person p = new Person();
-                p.setId((String) ob.get("id"));
+                p.setId(ob.get("id").toString()); // the id can be an integer
                 p.setNom((String) ob.get("nom"));
                 p.setPrenom((String) ob.get("prenom"));
                 p.setEmail((String) ob.get("email"));

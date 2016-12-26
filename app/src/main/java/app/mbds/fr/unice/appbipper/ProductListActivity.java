@@ -1,20 +1,14 @@
 package app.mbds.fr.unice.appbipper;
 
-import android.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import app.mbds.fr.unice.appbipper.adapter.ProductListAdapter;
-import app.mbds.fr.unice.appbipper.fragment.AppetizerListFragment;
-import app.mbds.fr.unice.appbipper.fragment.DessertsListFragment;
-import app.mbds.fr.unice.appbipper.fragment.DishListFragment;
-import app.mbds.fr.unice.appbipper.fragment.EntreeListFragment;
+import app.mbds.fr.unice.appbipper.fragment.ProductListFragment;
 
 public class ProductListActivity extends FragmentActivity {
 
@@ -23,10 +17,7 @@ public class ProductListActivity extends FragmentActivity {
     private ViewPager viewPager;
 
     /* Fragments */
-    private AppetizerListFragment appetizerListFragment;
-    private DessertsListFragment dessertsListFragment;
-    private DishListFragment dishListFragment;
-    private EntreeListFragment entreeListFragment;
+    private List<ProductListFragment> productFragments;
 
 
     @Override
@@ -34,32 +25,27 @@ public class ProductListActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_list);
 
-
         //init fragments
         initFragments();
-        List<Fragment> fragments = new ArrayList<>();
-        fragments.add(appetizerListFragment);
-        fragments.add(dessertsListFragment);
-        fragments.add(dishListFragment);
-        fragments.add(entreeListFragment);
 
         //init list
-        productListAdapter = new ProductListAdapter(getSupportFragmentManager(), fragments);
+        productListAdapter = new ProductListAdapter(getSupportFragmentManager(), productFragments);
         viewPager = (ViewPager) findViewById(R.id.product_list_layout);
         viewPager.setAdapter(productListAdapter);
-
     }
 
 
     private void initFragments(){
-        appetizerListFragment = new AppetizerListFragment();
-        dessertsListFragment = new DessertsListFragment();
-        dishListFragment = new DishListFragment();
-        entreeListFragment = new EntreeListFragment();
+        productFragments = new ArrayList<>();
+        String[] productTypes = getResources().getStringArray(R.array.name_type_products);
+        String url = getResources().getString(R.string.url_server);
+        String service = getResources().getString(R.string.url_service_product_type);
+
+        for(String type : productTypes){
+            String productUrl = url + String.format(service, type);
+            ProductListFragment f = ProductListFragment.newInstance(type, productUrl);
+            productFragments.add(f);
+        }
     }
 
-    private void initActionBar(List<Fragment> fragments){
-
-
-    }
 }

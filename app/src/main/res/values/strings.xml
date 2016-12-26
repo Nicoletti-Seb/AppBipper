@@ -40,8 +40,11 @@
     <string name="menu_create_menu">Créer un menu</string>
 
     <!-- URL -->
-    <string name="url_server">http://95.142.161.35:1337/</string>
+    <string name="url_server">http://95.142.161.35:8080/</string>
+    <string name="url_service_login">person/login</string>
     <string name="url_service_person">person/</string>
+    <string name="url_service_product">product/</string>
+    <string name="url_service_product_type">product/%1$s</string>
 
     <!-- list activity -->
     <string name="add_server">Ajouter un serveur</string>
@@ -78,5 +81,14 @@
     <string name="txt_discount">Discount</string>
     <string name="txt_value">value</string>
     <string name="btn_add_product">Ajouter</string>
+
+
+    <string-array name="name_type_products">
+        <item>Appéritif</item>
+        <item>Entrée</item>
+        <item>Plat%20</item>
+        <item>Dessert</item>
+    </string-array>
+
 
 </resources>

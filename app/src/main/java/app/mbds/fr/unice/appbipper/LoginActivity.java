@@ -369,9 +369,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         @Override
         protected String doInBackground(Object... params) {
-
-            String urlLogin = "http://95.142.161.35:1337/person/login";
-
+            String server = getResources().getString(R.string.url_server);
+            String service = getResources().getString(R.string.url_service_login);
+            String urlLogin = server + service;
             try {
                 HttpClient client = new DefaultHttpClient();
                 HttpPost post = new HttpPost(urlLogin);
