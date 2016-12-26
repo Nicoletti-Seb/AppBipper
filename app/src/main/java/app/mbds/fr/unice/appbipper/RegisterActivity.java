@@ -20,6 +20,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import app.mbds.fr.unice.appbipper.entity.Person;
+import app.mbds.fr.unice.appbipper.service.RegisterTask;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -75,10 +76,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         RadioButton radioGender = (RadioButton) findViewById(idRadio);
         person.setSexe(radioGender.getText().toString());
 
-        new RegisterTask().execute(person);
+        new RegisterTask(this).execute(person);
     }
 
-
+/*
     private class RegisterTask extends AsyncTask<Person, Void, Boolean>{
 
         @Override
@@ -165,5 +166,5 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
 
 
-    }
+    }*/
 }

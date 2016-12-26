@@ -62,7 +62,7 @@ public class DescProduct extends AppCompatActivity {
         @Override
         protected String doInBackground(Object... params) {
 
-            String ulrProduct = " http://95.142.161.35:1337/product/" + mId;
+            String ulrProduct = "http://95.142.161.35:1337/product/" + mId;
 
             try {
                 HttpClient client = new DefaultHttpClient();

@@ -38,6 +38,7 @@ import app.mbds.fr.unice.appbipper.LoginActivity;
 import app.mbds.fr.unice.appbipper.MenuActivity;
 import app.mbds.fr.unice.appbipper.R;
 import app.mbds.fr.unice.appbipper.entity.Person;
+import app.mbds.fr.unice.appbipper.service.DeleteUserTask;
 
 /**
  * Created by MBDS on 26/10/2016.
@@ -81,6 +82,8 @@ public class PersonItemAdapter extends BaseAdapter {
             viewHolder.connected = (ImageView)v.findViewById(R.id.isconnected);
             v.setTag(viewHolder);
 
+            final PersonItemAdapter p = this;
+
             ImageButton ib = (ImageButton)v.findViewById(R.id.delete_btn);
 
             ib.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +92,7 @@ public class PersonItemAdapter extends BaseAdapter {
                     Person pers = person.get(position);
                     System.out.println("Click pers: " + pers);
 
-                    DeleteUserTask mAuthTask = new DeleteUserTask(pers);
+                    DeleteUserTask mAuthTask = new DeleteUserTask(pers, p, context);
                     mAuthTask.execute((Void) null);
                 }
             });
@@ -111,47 +114,6 @@ public class PersonItemAdapter extends BaseAdapter {
     class PersonViewHolder{
         TextView nom_prenom;
         ImageView connected;
-    }
-
-    public class DeleteUserTask extends AsyncTask<Object, Object, String> {
-
-        private Person personne;
-
-        DeleteUserTask(Person personne) {
-            this.personne = personne;
-        }
-        @Override
-        protected String doInBackground(Object... params) {
-
-            //Delete request
-            try {
-                URL url = new URL(context.getString(R.string.url_server) + context.getString(R.string.url_service_person) + personne.getId());
-                System.out.println("url delete: " + url);
-                
-                HttpURLConnection connection = (HttpURLConnection)url.openConnection();
-                connection.setRequestMethod("DELETE");
-                connection.connect();
-
-                String result = "" + connection.getResponseCode();
-                System.out.println("Response :"+result);
-
-                return result;
-            } catch (IOException e) {
-                e.printStackTrace();
-                return null;
-            }            
-        }
-
-        @Override
-        protected void onPostExecute(final String success) {
-            System.out.println("success :"+success);
-
-            if(success.equals("200")) {
-                person.remove(personne);
-                PersonItemAdapter.this.notifyDataSetChanged();
-            }
-
-        }
     }
 }
 
