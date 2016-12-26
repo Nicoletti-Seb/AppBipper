@@ -72,24 +72,22 @@ public class PersonItemAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        View v = convertView;
-
         PersonViewHolder viewHolder = null;
-        if(v==null){
-            v = View.inflate(context, R.layout.element_layout, null);
+        if(convertView==null){
+            convertView = View.inflate(context, R.layout.element_layout, null);
             viewHolder = new PersonViewHolder();
-            viewHolder.nom_prenom= (TextView)v.findViewById(R.id.txt_nom_prenom);
-            viewHolder.connected = (ImageView)v.findViewById(R.id.isconnected);
-            v.setTag(viewHolder);
+            viewHolder.nom_prenom= (TextView)convertView.findViewById(R.id.txt_nom_prenom);
+            viewHolder.connected = (ImageView)convertView.findViewById(R.id.isconnected);
+            viewHolder.removeBtn = (ImageButton)convertView.findViewById(R.id.delete_btn);
+            convertView.setTag(viewHolder);
 
+            //Listener delete
             final PersonItemAdapter p = this;
-
-            ImageButton ib = (ImageButton)v.findViewById(R.id.delete_btn);
-
-            ib.setOnClickListener(new View.OnClickListener() {
+            viewHolder.removeBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Person pers = person.get(position);
+                    Integer pos = (Integer)v.getTag();
+                    Person pers = person.get(pos);
                     System.out.println("Click pers: " + pers);
 
                     DeleteUserTask mAuthTask = new DeleteUserTask(pers, p, context);
@@ -98,22 +96,25 @@ public class PersonItemAdapter extends BaseAdapter {
             });
         }
         else{
-            viewHolder = (PersonViewHolder) v.getTag();
+            viewHolder = (PersonViewHolder) convertView.getTag();
         }
 
         Person pers = person.get(position);
+        viewHolder.removeBtn.setTag(position);
         viewHolder.nom_prenom.setText(pers.getFullName());
         if(pers.isConnected()) {
             viewHolder.connected.setImageResource(R.drawable.circle_icon_green);
         } else {
             viewHolder.connected.setImageResource(R.drawable.circle_icon_grey);
         }
-        return v;
+        return convertView;
     }
 
     class PersonViewHolder{
         TextView nom_prenom;
         ImageView connected;
+        ImageButton removeBtn;
+
     }
 }
 

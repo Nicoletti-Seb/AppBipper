@@ -80,6 +80,8 @@ public class ListingTask extends AsyncTask<Void, Void, String> {
     protected void onPostExecute(String theResponse) {
         super.onPostExecute(theResponse);
 
+        System.out.println("Reponse " + theResponse);
+
         //showProgressDialog(false);
         ListView lst = (ListView) mListActivity.findViewById(R.id.listView);
         List<Person> person = new ArrayList<>();
@@ -91,7 +93,7 @@ public class ListingTask extends AsyncTask<Void, Void, String> {
             System.out.println("o"+i+" :: "+ob.toString());
 
             Person p = new Person();
-            p.setId((String) ob.get("id"));
+            p.setId(ob.get("id").toString()); // can be an integer
             p.setNom((String) ob.get("nom"));
             p.setPrenom((String) ob.get("prenom"));
             p.setEmail((String) ob.get("email"));

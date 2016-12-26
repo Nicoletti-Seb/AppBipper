@@ -43,6 +43,7 @@ public class ListActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_list);
 
         mListingTask = new ListingTask(this);
+        mListingTask.execute();
 
         // Listener button
         Button addServer = (Button)findViewById(R.id.add_server);

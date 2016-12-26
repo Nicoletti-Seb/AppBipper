@@ -33,6 +33,7 @@ public class DeleteUserTask extends AsyncTask<Object, Object, String> {
     protected String doInBackground(Object... params) {
         String server = context.getResources().getString(R.string.url_server);
         String service = String.format(context.getString(R.string.url_service_person_delete), personne.getId());
+        System.out.println("ID " + personne.getId());
 
         //Delete request
         try {
