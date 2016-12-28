@@ -56,7 +56,8 @@ public class RegisterTask extends AsyncTask<Person, Void, Boolean> {
             osw.flush();
             osw.close();
 
-            if( connection.getResponseCode() ==  HttpURLConnection.HTTP_CREATED ){
+            int codeResponse = connection.getResponseCode();
+            if( 200 <= codeResponse && codeResponse < 300 ){
                 result = true;
             }
 

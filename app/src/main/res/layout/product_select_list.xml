@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/product_el_picture"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:minWidth="@dimen/menu_order_el_min_width_picture"
+        android:minHeight="@dimen/menu_order_el_min_height_picture"
+        android:maxWidth="@dimen/menu_order_el_max_width_picture"
+        android:maxHeight="@dimen/menu_order_el_max_height_picture"
+        android:src="@drawable/ic_restaurant_black_24dp"
+        android:layout_below="@id/product_el_type"
+        android:layout_margin="@dimen/menu_order_el_margin"/>
+
+    <TextView
+        android:id="@+id/product_el_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Black Decker Matrix Combo Kit, 20v Drill And Trim Saw, Bdcdmt120ts"
+        android:layout_toLeftOf="@id/product_el_button_see_product"
+        android:layout_toRightOf="@id/product_el_picture"
+        android:layout_alignTop="@id/product_el_picture"
+        android:textColor="@android:color/black"
+        android:textSize="15dp"
+        android:textStyle="bold"/>
+
+    <ImageButton
+        android:id="@+id/product_el_button_see_product"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:minWidth="@dimen/menu_order_el_min_width_search_picture"
+        android:minHeight="@dimen/menu_order_el_min_height_search_picture"
+        android:maxWidth="@dimen/menu_order_el_max_width_search_picture"
+        android:maxHeight="@dimen/menu_order_el_max_height_search_picture"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_search_black_24dp"
+        android:background="@color/colorWhite"/>
+
+</RelativeLayout>

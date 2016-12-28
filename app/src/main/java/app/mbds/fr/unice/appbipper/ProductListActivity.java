@@ -38,12 +38,8 @@ public class ProductListActivity extends FragmentActivity {
     private void initFragments(){
         productFragments = new ArrayList<>();
         String[] productTypes = getResources().getStringArray(R.array.name_type_products);
-        String url = getResources().getString(R.string.url_server);
-        String service = getResources().getString(R.string.url_service_product_type);
-
         for(String type : productTypes){
-            String productUrl = url + String.format(service, type);
-            ProductListFragment f = ProductListFragment.newInstance(type, productUrl);
+            ProductListFragment f = ProductListFragment.newInstance(type);
             productFragments.add(f);
         }
     }

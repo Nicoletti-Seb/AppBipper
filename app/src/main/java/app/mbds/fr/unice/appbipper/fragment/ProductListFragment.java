@@ -1,50 +1,58 @@
 package app.mbds.fr.unice.appbipper.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import app.mbds.fr.unice.appbipper.R;
+import app.mbds.fr.unice.appbipper.adapter.ProductItemAdapter;
+import app.mbds.fr.unice.appbipper.adapter.ProductListAdapter;
 import app.mbds.fr.unice.appbipper.entity.Product;
+import app.mbds.fr.unice.appbipper.service.ProductTask;
 
 public class ProductListFragment extends Fragment {
 
     private static final String TAG = "ProductListFragment";
-    private static final String KEY_URL = "url";
 
+    //Model
     private List<Product> products;
-
+    private ProductItemAdapter adapter;
     private String name;
 
-    private String url;
+    //View
+    private ListView listView;
 
-    public static ProductListFragment newInstance(String name, String url) {
+    public static ProductListFragment newInstance(String name) {
         ProductListFragment myFragment = new ProductListFragment();
         myFragment.setName(name);
-
-        Bundle args = new Bundle();
-        args.putString(KEY_URL, url);
-        myFragment.setArguments(args);
-
         return myFragment;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.url = getArguments().getString(KEY_URL);
+        products = new ArrayList<>();
+        adapter = new ProductItemAdapter(getContext(), products);
+        new ProductTask(name, adapter, getContext()).execute();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        View view = inflater.inflate(R.layout.fragment_product_list, container, false);
+        listView = (ListView)view.findViewById(R.id.product_list);
+        listView.setAdapter(adapter);
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_product_list, container, false);
+        return view;
     }
 
 

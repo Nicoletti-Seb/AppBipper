@@ -6,14 +6,22 @@ package app.mbds.fr.unice.appbipper.entity;
 
 public class Product {
 
+    private String id;
     private String name;
     private String description;
-    private int price;
-    private int calories;
+    private float price;
+    private float calories;
     private String type;
     private String picture;
-    private int discount;
+    private float discount;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -31,19 +39,19 @@ public class Product {
         this.description = description;
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
-    public int getCalories() {
+    public float getCalories() {
         return calories;
     }
 
-    public void setCalories(int calories) {
+    public void setCalories(float calories) {
         this.calories = calories;
     }
 
@@ -63,11 +71,11 @@ public class Product {
         this.picture = picture;
     }
 
-    public int getDiscount() {
+    public float getDiscount() {
         return discount;
     }
 
-    public void setDiscount(int discount) {
+    public void setDiscount(float discount) {
         this.discount = discount;
     }
 }

@@ -60,13 +60,12 @@ public class PersonItemAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int arg0) {
-        return person.get(arg0);
+    public Object getItem(int position) {
+        return person.get(position);
     }
 
     @Override
-    public long getItemId(int arg0) {
-        // TODO Auto-generated method stub
+    public long getItemId(int position) {
         return 0;
     }
 
