@@ -109,6 +109,10 @@ public class PersonItemAdapter extends BaseAdapter {
         return convertView;
     }
 
+    public List<Person> getPerson() {
+        return person;
+    }
+
     class PersonViewHolder{
         TextView nom_prenom;
         ImageView connected;

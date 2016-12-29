@@ -2,10 +2,9 @@ package app.mbds.fr.unice.appbipper.service;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.widget.ListView;
 
 import com.google.gson.Gson;
-import com.google.gson.internal.LinkedTreeMap;
+import com.google.gson.reflect.TypeToken;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -14,10 +13,11 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import app.mbds.fr.unice.appbipper.ListActivity;
+
 import app.mbds.fr.unice.appbipper.R;
 import app.mbds.fr.unice.appbipper.adapter.PersonItemAdapter;
 import app.mbds.fr.unice.appbipper.entity.Person;
@@ -28,18 +28,19 @@ import app.mbds.fr.unice.appbipper.entity.Person;
 
 public class ListingTask extends AsyncTask<Void, Void, String> {
 
-    private final ListActivity mListActivity;
+    private Context context;
+    private PersonItemAdapter personItemAdapter;
 
-
-    public ListingTask(ListActivity listActivity) {
-        mListActivity = listActivity;
+    public ListingTask(PersonItemAdapter personItemAdapter, Context context) {
+        this.personItemAdapter = personItemAdapter;
+        this.context = context;
     }
 
     @Override
     protected String doInBackground(Void... params) {
         //Effectuer la requete vers les WS ici
-        String url = mListActivity.getResources().getString(R.string.url_server);
-        String service = mListActivity.getResources().getString(R.string.url_service_person);
+        String url = context.getResources().getString(R.string.url_server);
+        String service = context.getResources().getString(R.string.url_service_person);
         String urlList = url + service;
 
         try {
@@ -82,31 +83,11 @@ public class ListingTask extends AsyncTask<Void, Void, String> {
 
         System.out.println("Reponse " + theResponse);
 
-        //showProgressDialog(false);
-        ListView lst = (ListView) mListActivity.findViewById(R.id.listView);
-        List<Person> person = new ArrayList<>();
+        //https://static.javadoc.io/com.google.code.gson/gson/2.6.2/com/google/gson/reflect/TypeToken.html
+        Type listType = new TypeToken<ArrayList<Person>>() {}.getType();
+        List<Person> list = new Gson().fromJson(theResponse, listType);
+        personItemAdapter.getPerson().addAll(list);
+        personItemAdapter.notifyDataSetChanged();
 
-        Gson gson = new Gson();
-        ArrayList array = gson.fromJson(theResponse, ArrayList.class);
-        for (int i = 0; i < array.size(); i++) {
-            LinkedTreeMap ob = (LinkedTreeMap) array.get(i);
-            System.out.println("o"+i+" :: "+ob.toString());
-
-            Person p = new Person();
-            p.setId(ob.get("id").toString()); // can be an integer
-            p.setNom((String) ob.get("nom"));
-            p.setPrenom((String) ob.get("prenom"));
-            p.setEmail((String) ob.get("email"));
-            p.setPassword((String) ob.get("password"));
-            p.setSexe((String) ob.get("sexe"));
-            p.setTelephone((String) ob.get("telephone"));
-            p.setCreatedBy((String) ob.get("createdBy"));
-            p.setConnected((boolean) ob.get("connected"));
-
-            person.add(p);
-        }
-
-        PersonItemAdapter adapter = new PersonItemAdapter(mListActivity, person);
-        lst.setAdapter(adapter);
     }
 }

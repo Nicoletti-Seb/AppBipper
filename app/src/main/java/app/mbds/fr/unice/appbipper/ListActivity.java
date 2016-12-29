@@ -35,14 +35,24 @@ import app.mbds.fr.unice.appbipper.service.ListingTask;
 
 public class ListActivity extends Activity implements View.OnClickListener {
 
-    private ListingTask mListingTask = null;
+    //View
+    private ListView listView;
+
+    //Model
+    private ListingTask mListingTask;
+    private List<Person> person = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        mListingTask = new ListingTask(this);
+        //List
+        PersonItemAdapter adapter = new PersonItemAdapter(this, person);
+        listView = (ListView) findViewById(R.id.listView);
+        listView.setAdapter(adapter);
+
+        mListingTask = new ListingTask(adapter, this);
         mListingTask.execute();
 
         // Listener button
