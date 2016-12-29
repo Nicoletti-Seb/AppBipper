@@ -1,6 +1,7 @@
 package app.mbds.fr.unice.appbipper.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -10,10 +11,12 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import app.mbds.fr.unice.appbipper.DescProduct;
 import app.mbds.fr.unice.appbipper.R;
 import app.mbds.fr.unice.appbipper.entity.Person;
 import app.mbds.fr.unice.appbipper.entity.Product;
 import app.mbds.fr.unice.appbipper.service.DeleteUserTask;
+import app.mbds.fr.unice.appbipper.service.LoadImageTask;
 
 /**
  * Created by 53js-Seb on 28/10/2016.
@@ -56,7 +59,19 @@ public class ProductItemAdapter extends BaseAdapter{
             viewHolder.descriptionBtn = (ImageButton)convertView.findViewById(R.id.product_el_button_see_product);
             convertView.setTag(viewHolder);
 
-            //TODO add listener to see the element description
+            //Load image
+            new LoadImageTask(viewHolder.image).execute(products.get(position).getPicture());
+
+            //Listener button
+            viewHolder.descriptionBtn.setOnClickListener( new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    Product product = products.get((int)v.getTag());
+                    Intent i = new Intent(context, DescProduct.class);
+                    i.putExtra(DescProduct.PARAM_PRODUCT, product);
+                    context.startActivity(i);
+                }
+            });
         }
         else{
             viewHolder = (ProductViewHolder) convertView.getTag();

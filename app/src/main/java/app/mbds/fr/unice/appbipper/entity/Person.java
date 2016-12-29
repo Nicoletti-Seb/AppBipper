@@ -1,10 +1,12 @@
 package app.mbds.fr.unice.appbipper.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by 53js-Seb on 21/10/2016.
  */
 
-public class Person {
+public class Person implements Serializable{
 
     private String id;
     private String nom;

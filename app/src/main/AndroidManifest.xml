@@ -36,7 +36,7 @@
             android:label="@string/title_activity_list" />
         <activity android:name=".OrderActivity" />
         <activity android:name=".ProductListActivity" />
-        <activity android:name=".fragment.DescProduct"></activity>
+        <activity android:name=".DescProduct"></activity>
     </application>
 
 </manifest>
