@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import app.mbds.fr.unice.appbipper.entity.Product;
-import app.mbds.fr.unice.appbipper.service.LoadImageTask;
+import app.mbds.fr.unice.appbipper.service.image_loader.LoadImageTask;
 
 public class DescProduct extends Activity {
 
