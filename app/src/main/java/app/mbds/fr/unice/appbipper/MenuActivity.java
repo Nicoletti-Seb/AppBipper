@@ -35,8 +35,8 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, ServerActivity.class));
                 break;
             case R.id.button_create_menu:
-                Intent i = new Intent(this, OrderActivity.class);
-                i.putExtra(OrderActivity.PARAM_USER, user);
+                Intent i = new Intent(this, MenuListActivity.class);
+                i.putExtra(MenuListActivity.PARAM_USER, user);
                 startActivity(i);
                 break;
         }

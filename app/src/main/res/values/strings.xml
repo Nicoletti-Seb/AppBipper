@@ -54,16 +54,8 @@
     <string name="hello_round">Hello Round World!</string>
     <string name="hello_square">Hello Square World!</string>
 
-    <!-- order activity -->
-    <string name="order_title">Menu</string>
-    <string name="order_type_entrees">Entrées</string>
-    <string name="order_type_dishes">Plats</string>
-    <string name="order_type_desserts">Desserts</string>
-    <string name="order_see_all_entrees">Voir toutes les entrées</string>
-    <string name="order_see_all_dishes">Voir toutes les plats</string>
-    <string name="order_see_all_desserts">Voir toutes les desserts</string>
-    <string name="order_see_product">Voir le produit</string>
-    <string name="order_remove_from_order">Supprimer du menu</string>
+    <!-- Menu list activity -->
+    <string name="list_menu_title">Menu</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -101,6 +93,12 @@
 
     <!-- create menu -->
     <string name="menu_create">Le menu a été créé !</string>
+
+    <!-- menu_item_list -->
+    <string name="menu_element_number">N°</string>
+    <string name="menu_element_server">Serveur:</string>
+    <string name="menu_element_cooker">Cuisinier:</string>
+
 
     <string name="error_toast">Une erreur c&quot;est produite....</string>
 

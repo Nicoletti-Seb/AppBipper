@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_element_number"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/menu_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/text_number"
+        android:text="58693c395a4b708e2b04a07c"/>
+
+    <TextView
+        android:id="@+id/text_server"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_element_server"
+        android:layout_below="@id/text_number"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/menu_server"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nicoletti Sébastien"
+        android:layout_below="@+id/menu_number"
+        android:layout_toRightOf="@+id/text_server" />
+
+    <TextView
+        android:id="@+id/text_cooker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_element_cooker"
+        android:layout_below="@id/menu_server"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/menu_cooker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nicoletti Sébastien"
+        android:layout_below="@id/menu_server"
+        android:layout_toRightOf="@+id/text_cooker" />
+
+
+</RelativeLayout>

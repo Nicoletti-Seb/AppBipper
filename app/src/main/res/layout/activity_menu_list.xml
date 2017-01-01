@@ -8,10 +8,10 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="app.mbds.fr.unice.appbipper.OrderActivity">
+    tools:context="app.mbds.fr.unice.appbipper.MenuListActivity">
 
     <ImageButton
-        android:id="@+id/menu_order_add"
+        android:id="@+id/menu_List_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_add_circle_black_48dp"
@@ -21,10 +21,10 @@
         android:layout_marginRight="@dimen/menu_margin_btn_add"/>
 
     <ListView
-        android:id="@+id/menu_order_list"
+        android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/menu_order_add">
+        android:layout_below="@id/menu_List_add">
 
     </ListView>
     
