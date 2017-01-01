@@ -12,25 +12,33 @@ import java.util.List;
 
 import app.mbds.fr.unice.appbipper.R;
 import app.mbds.fr.unice.appbipper.adapter.PersonItemAdapter;
+import app.mbds.fr.unice.appbipper.entity.Menu;
 import app.mbds.fr.unice.appbipper.entity.Person;
 
 /**
  * Created by MBDS on 27/11/2016.
  */
 
-public class DeleteUserTask extends AsyncTask<Object, Object, String> {
+public class DeleteUserTask extends AsyncTask<Person, Void, String> {
 
     private final Context context;
     private final PersonItemAdapter personItemAdapter;
     private Person personne;
 
-    public DeleteUserTask(Person personne, PersonItemAdapter personItemAdapter, Context context) {
-        this.personne = personne;
+    public DeleteUserTask(PersonItemAdapter personItemAdapter, Context context) {
         this.context = context;
         this.personItemAdapter = personItemAdapter;
     }
+
     @Override
-    protected String doInBackground(Object... params) {
+    protected String doInBackground(Person... params) {
+
+        //Verify params
+        if( params.length <= 0 ){
+            return null;
+        }
+        Person person  = params[0];
+
         String server = context.getResources().getString(R.string.url_server);
         String service = String.format(context.getString(R.string.url_service_person_delete), personne.getId());
         System.out.println("ID " + personne.getId());
@@ -59,7 +67,7 @@ public class DeleteUserTask extends AsyncTask<Object, Object, String> {
         System.out.println("success :"+success);
 
         if(success.equals("200")) {
-            personItemAdapter.person.remove(personne);
+            personItemAdapter.getPerson().remove(personne);
             personItemAdapter.notifyDataSetChanged();
         }
 

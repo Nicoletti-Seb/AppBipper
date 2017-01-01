@@ -46,6 +46,7 @@
     <string name="url_service_person_delete">person/%1$s</string>
     <string name="url_service_product">product/</string>
     <string name="url_service_product_type">product?type=%1$s</string>
+    <string name="url_service_menu">menu/</string>
 
     <!-- list activity -->
     <string name="add_server">Ajouter un serveur</string>
@@ -67,7 +68,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <!-- fragments -->
+    <!-- fragments Products -->
     <string name="title_fragment_appetizer">Appéritifs</string>
     <string name="title_fragment_desserts">Desserts</string>
     <string name="title_fragment_dishes">Plats</string>
@@ -93,5 +94,14 @@
         <item>Dessert</item>
     </string-array>
 
+
+    <!-- activity_person_list -->
+    <string name="person_title_activity">Choix du cuisinier</string>
+
+
+    <!-- create menu -->
+    <string name="menu_create">Le menu a été créé !</string>
+
+    <string name="error_toast">Une erreur c&quot;est produite....</string>
 
 </resources>

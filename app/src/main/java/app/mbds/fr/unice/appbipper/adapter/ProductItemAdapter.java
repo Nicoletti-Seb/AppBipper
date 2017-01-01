@@ -2,8 +2,6 @@ package app.mbds.fr.unice.appbipper.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -12,12 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 import app.mbds.fr.unice.appbipper.DescProduct;
 import app.mbds.fr.unice.appbipper.R;
 import app.mbds.fr.unice.appbipper.entity.Product;
-import app.mbds.fr.unice.appbipper.service.image_loader.ImageMemoryCache;
 import app.mbds.fr.unice.appbipper.service.image_loader.LoadImageTask;
 
 /**
@@ -56,7 +52,7 @@ public class ProductItemAdapter extends BaseAdapter{
         ProductViewHolder viewHolder;
         Product product = products.get(position);
         if(convertView==null){
-            convertView = View.inflate(context, R.layout.product_select_list, null);
+            convertView = View.inflate(context, R.layout.product_item_list, null);
             viewHolder = new ProductViewHolder();
             viewHolder.title= (TextView)convertView.findViewById(R.id.product_el_title);
             viewHolder.descriptionBtn = (ImageButton)convertView.findViewById(R.id.product_el_button_see_product);

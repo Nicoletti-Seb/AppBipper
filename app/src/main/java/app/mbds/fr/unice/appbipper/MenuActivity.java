@@ -6,12 +6,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import app.mbds.fr.unice.appbipper.entity.Person;
+
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
+
+    public static final String PARAM_USER = "PARAM_USER";
+
+    private Person user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        user = (Person)getIntent().getSerializableExtra(PARAM_USER);
 
         Button gotolist = (Button)findViewById(R.id.button_list);
         gotolist.setOnClickListener(this);
@@ -24,10 +32,12 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_list:
-                startActivity(new Intent(this, ListActivity.class));
+                startActivity(new Intent(this, ServerActivity.class));
                 break;
             case R.id.button_create_menu:
-                startActivity(new Intent(this, OrderActivity.class));
+                Intent i = new Intent(this, OrderActivity.class);
+                i.putExtra(OrderActivity.PARAM_USER, user);
+                startActivity(i);
                 break;
         }
     }

@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants">
 
     <ImageView
         android:id="@+id/product_el_picture"
@@ -34,6 +35,6 @@
         android:maxHeight="@dimen/menu_order_el_max_height_search_picture"
         android:layout_alignParentRight="true"
         android:src="@drawable/ic_search_black_24dp"
-        android:background="@color/colorWhite"/>
+        android:background="@color/colorWhite" />
 
 </RelativeLayout>

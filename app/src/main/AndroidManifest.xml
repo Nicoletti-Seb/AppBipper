@@ -32,11 +32,12 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".ListActivity"
+            android:name=".ServerActivity"
             android:label="@string/title_activity_list" />
         <activity android:name=".OrderActivity" />
-        <activity android:name=".ProductListActivity" />
-        <activity android:name=".DescProduct"></activity>
+        <activity android:name=".CreateMenuActivity" />
+        <activity android:name=".DescProduct" />
+        <activity android:name=".PersonListActivity"></activity>
     </application>
 
 </manifest>

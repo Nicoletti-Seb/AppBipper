@@ -35,6 +35,7 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -49,7 +50,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import app.mbds.fr.unice.appbipper.entity.Login;
+
+import app.mbds.fr.unice.appbipper.entity.Person;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -415,17 +417,19 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = null;
             showProgress(false);
 
-            Map map = new HashMap<String, String>();
             Gson gson = new Gson();
-            map = gson.fromJson(success, HashMap.class);
+            JsonObject jsonObject = gson.fromJson( success, JsonObject.class);
 
-            System.out.println("reponse content : " + map);
+            System.out.println("reponse content : " + jsonObject);
 
-            if (map.get("success").equals(true)) {
-                startActivity(new Intent(LoginActivity.this, MenuActivity.class));
+            if (jsonObject.get("success").getAsBoolean()) {
+                Person person = gson.fromJson(jsonObject.get("user"), Person.class);
+                Intent i = new Intent(LoginActivity.this, MenuActivity.class);
+                i.putExtra(MenuActivity.PARAM_USER, person);
+                startActivity(i);
                 finish();
             } else {
-                mPasswordView.setError(map.get("message").toString());
+                mPasswordView.setError(jsonObject.get("message").toString());
                 mPasswordView.requestFocus();
             }
         }
@@ -434,6 +438,19 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         protected void onCancelled() {
             mAuthTask = null;
             showProgress(false);
+        }
+    }
+
+    private class Login {
+
+        private String email;
+
+        private String password;
+
+
+        public Login(String email, String password) {
+            this.email = email;
+            this.password = password;
         }
     }
 }
