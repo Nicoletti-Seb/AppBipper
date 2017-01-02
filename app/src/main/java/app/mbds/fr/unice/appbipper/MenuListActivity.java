@@ -62,7 +62,7 @@ public class MenuListActivity extends ListActivity implements View.OnClickListen
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         Menu menu = menus.get(position);
-        
+
         Intent i = new Intent(this, MenuDescActivity.class);
         i.putExtra(MenuDescActivity.PARAM_MENU, menu);
         startActivity(i);
