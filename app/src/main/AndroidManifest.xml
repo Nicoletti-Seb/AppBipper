@@ -37,7 +37,8 @@
         <activity android:name=".MenuListActivity" />
         <activity android:name=".CreateMenuActivity" />
         <activity android:name=".DescProduct" />
-        <activity android:name=".PersonListActivity"></activity>
+        <activity android:name=".PersonListActivity" />
+        <activity android:name=".MenuDescActivity"></activity>
     </application>
 
 </manifest>
