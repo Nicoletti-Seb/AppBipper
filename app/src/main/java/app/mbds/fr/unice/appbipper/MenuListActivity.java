@@ -20,9 +20,6 @@ public class MenuListActivity extends ListActivity implements View.OnClickListen
 
     private static final String TAG = "MenuListActivity";
 
-    public static final String PARAM_USER = "PARAM_USER";
-
-
     //Model
     private Person user;
     private List<Menu> menus = new ArrayList<>();
@@ -35,7 +32,7 @@ public class MenuListActivity extends ListActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        user = (Person)getIntent().getSerializableExtra(PARAM_USER);
+        user = ((BipperApplication)getApplication()).getUser();
 
         setContentView(R.layout.activity_menu_list);
         setTitle(R.string.list_menu_title);
@@ -54,7 +51,6 @@ public class MenuListActivity extends ListActivity implements View.OnClickListen
     public void onClick(View v) {
         if( v.getId() == R.id.menu_List_add){
             Intent intent = new Intent(this, CreateMenuActivity.class);
-            intent.putExtra(CreateMenuActivity.PARAM_USER, user);
             startActivity(intent);
         }
     }
