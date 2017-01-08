@@ -19,8 +19,6 @@ import app.mbds.fr.unice.appbipper.fragment.ProductListFragment;
 import app.mbds.fr.unice.appbipper.service.CreateMenuTask;
 
 public class CreateMenuActivity extends FragmentActivity implements View.OnClickListener{
-
-    public static final String PARAM_USER = "PARAM_USER";
     private static final int REQUEST_CODE_ASK_PERSON = 0;
 
     private Person user;
@@ -37,7 +35,7 @@ public class CreateMenuActivity extends FragmentActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        user = (Person) getIntent().getSerializableExtra(PARAM_USER);
+        user = ((BipperApplication)getApplication()).getUser();
 
         setContentView(R.layout.activity_product_list);
 

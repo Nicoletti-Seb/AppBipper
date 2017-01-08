@@ -424,8 +424,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             if (jsonObject.get("success").getAsBoolean()) {
                 Person person = gson.fromJson(jsonObject.get("user"), Person.class);
+                ((BipperApplication)getApplication()).setUser(person);
+
                 Intent i = new Intent(LoginActivity.this, MenuActivity.class);
-                i.putExtra(MenuActivity.PARAM_USER, person);
                 startActivity(i);
                 finish();
             } else {

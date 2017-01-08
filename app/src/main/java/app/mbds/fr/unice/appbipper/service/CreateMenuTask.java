@@ -82,8 +82,6 @@ public class CreateMenuTask extends AsyncTask<Menu, Void, Boolean> {
 
     @Override
     protected void onPostExecute(Boolean bool) {
-        super.onPostExecute(bool);
-
         if(bool){
             Toast.makeText(context, R.string.menu_create, Toast.LENGTH_LONG).show();
         }else{

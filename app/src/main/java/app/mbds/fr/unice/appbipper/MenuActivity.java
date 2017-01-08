@@ -10,7 +10,6 @@ import app.mbds.fr.unice.appbipper.entity.Person;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public static final String PARAM_USER = "PARAM_USER";
 
     private Person user;
 
@@ -19,7 +18,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        user = (Person)getIntent().getSerializableExtra(PARAM_USER);
+        user = ((BipperApplication)getApplication()).getUser();
 
         Button gotolist = (Button)findViewById(R.id.button_list);
         gotolist.setOnClickListener(this);
@@ -36,7 +35,6 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button_create_menu:
                 Intent i = new Intent(this, MenuListActivity.class);
-                i.putExtra(MenuListActivity.PARAM_USER, user);
                 startActivity(i);
                 break;
         }
