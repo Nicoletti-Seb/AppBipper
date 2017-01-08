@@ -1,16 +1,20 @@
 package app.mbds.fr.unice.appbipper.adapter;
 
+import android.app.Application;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
+import app.mbds.fr.unice.appbipper.BipperApplication;
 import app.mbds.fr.unice.appbipper.R;
 import app.mbds.fr.unice.appbipper.entity.Person;
+import app.mbds.fr.unice.appbipper.service.BuzzTask;
 import app.mbds.fr.unice.appbipper.service.DeleteUserTask;
 
 /**
@@ -56,6 +60,7 @@ public class PersonItemAdapter extends BaseAdapter {
             viewHolder.removeBtn = convertView.findViewById(R.id.delete_btn);
             convertView.setTag(viewHolder);
 
+            initListenerBuzzBtn(viewHolder);
             initListenerRemoveBtn(viewHolder);
         }
         else{
@@ -77,10 +82,35 @@ public class PersonItemAdapter extends BaseAdapter {
             viewHolder.connected.setImageResource(R.drawable.circle_icon_grey);
         }
 
-        //Position for the remove button
+        //Update tag components
+        viewHolder.connected.setTag(position);
         if( viewHolder.removeBtn != null){
             viewHolder.removeBtn.setTag(position);
         }
+    }
+
+    private void initListenerBuzzBtn(PersonViewHolder viewHolder){
+        if( viewHolder.connected == null ){
+            return;
+        }
+
+        viewHolder.connected.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Receiver
+                Integer pos = (Integer)v.getTag();
+                Person receiver = persons.get(pos);
+                if(!receiver.isConnected()){
+                    Toast.makeText(context, R.string.buzz_user_not_connected, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                //Sender
+                Person sender = ((BipperApplication)context.getApplicationContext()).getUser();
+
+                new BuzzTask(context).execute(receiver, sender);
+            }
+        });
     }
 
     private void initListenerRemoveBtn(PersonViewHolder viewHolder){

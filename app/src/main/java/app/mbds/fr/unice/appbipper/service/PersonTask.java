@@ -79,8 +79,6 @@ public class PersonTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String theResponse) {
-        super.onPostExecute(theResponse);
-
         System.out.println("Reponse " + theResponse);
 
         //https://static.javadoc.io/com.google.code.gson/gson/2.6.2/com/google/gson/reflect/TypeToken.html
