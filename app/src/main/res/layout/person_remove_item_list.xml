@@ -7,23 +7,25 @@
     <!-- Placez vos éléments ici -->
     <ImageView
         android:id="@+id/isconnected"
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
+        android:layout_width="@dimen/circle_icon_connection_width"
+        android:layout_height="@dimen/circle_icon_connection_height" />
 
     <TextView
         android:id="@+id/txt_nom_prenom"
-        android:text="Nom Prenom"
+        android:text="Nom Prénom"
         android:layout_toRightOf="@+id/isconnected"
-        android:textSize="20dp"
+        android:layout_toLeftOf="@+id/delete_btn"
+        android:textSize="@dimen/person_item_txt_nom_prenom_size"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="@dimen/person_item_txt_nom_prenom_height"
+        android:paddingLeft="@dimen/person_item_padding_left_label"
         android:gravity="center_vertical"/>
 
     <ImageButton
         android:id="@+id/delete_btn"
-        android:layout_width="50dp"
-        android:layout_height="100dp"
-        android:paddingRight="10dp"
+        android:layout_width="@dimen/person_item_remove_delete_btn_width"
+        android:layout_height="@dimen/person_item_txt_nom_prenom_height"
+        android:paddingRight="@dimen/person_item_remove_delete_btn_padding_right"
         android:layout_alignParentRight="true"
         android:background="@android:color/transparent"
         android:src="@drawable/ic_remove_black_24dp"

@@ -24,7 +24,7 @@
     <!-- menu order -->
     <dimen name="menu_margin_btn_add">3dp</dimen>
 
-    <!-- menu order element dimens-->
+    <!-- desc menu item dimens-->
     <dimen name="menu_order_el_min_width_picture">80dp</dimen>
     <dimen name="menu_order_el_min_height_picture">80dp</dimen>
     <dimen name="menu_order_el_max_width_picture">80dp</dimen>
@@ -36,5 +36,23 @@
     <dimen name="menu_order_el_max_height_search_picture">80dp</dimen>
 
     <dimen name="menu_order_el_margin">2dp</dimen>
+
+    <!-- icon connection dimens -->
+    <dimen name="circle_icon_connection_width">100dp</dimen>
+    <dimen name="circle_icon_connection_height">100dp</dimen>
+
+    <!-- person item dimens -->
+    <dimen name="person_item_txt_nom_prenom_size">20dp</dimen>
+    <dimen name="person_item_txt_nom_prenom_height">100dp</dimen>
+
+    <dimen name="person_item_remove_delete_btn_padding_right">10dp</dimen>
+    <dimen name="person_item_remove_delete_btn_width">50dp</dimen>
+
+    <dimen name="person_item_padding_left_label">20dp</dimen>
+
+    <!-- menu_item_list -->
+    <dimen name="menu_item_ic_size">30dp</dimen>
+    <dimen name="menu_item_ic_margin">5dp</dimen>
+    <dimen name="menu_item_txt_padding">10dp</dimen>
 
 </resources>
