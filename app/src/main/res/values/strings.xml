@@ -82,7 +82,8 @@
         <item>Entrée</item>
         <!-- For keep space at the end of Plat
             http://stackoverflow.com/questions/1587056/how-to-keep-the-spaces-at-the-end-and-or-at-the-beginning-of-a-string -->
-        <item>Plat\u0020</item>
+        <!-- <item>Plat\u0020</item> -->
+        <item>Plat</item>
         <item>Dessert</item>
     </string-array>
 

@@ -17,6 +17,7 @@ public class Person implements Serializable{
     private String createdBy;
     private String password;
     private boolean connected;
+    private String gcmKey;
 
     public String getId() {
         return id;
@@ -89,6 +90,10 @@ public class Person implements Serializable{
     public void setConnected(boolean connected) {
         this.connected = connected;
     }
+
+    public String getGcmKey() { return gcmKey; }
+
+    public void setGcmKey(String gcmKey) { this.gcmKey = gcmKey; }
 
     public String toString() {
         return "[nom:" + nom + ", prenom:" + prenom + ", sexe:" + sexe + ", tel:" + telephone + ", email:" + email + ", createdBy:" + createdBy + ", password:" + password + "]";

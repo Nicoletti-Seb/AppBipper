@@ -20,24 +20,24 @@ import app.mbds.fr.unice.appbipper.service.DeleteUserTask;
 public class PersonItemAdapter extends BaseAdapter {
 
     private Context context;
-    private List<Person> person;
+    private List<Person> persons;
     private int idLayoutItem;
 
 
-    public PersonItemAdapter(Context context, List<Person> person, int idLayoutItem) {
+    public PersonItemAdapter(Context context, List<Person> persons, int idLayoutItem) {
         this.context = context;
-        this.person = person;
+        this.persons = persons;
         this.idLayoutItem = idLayoutItem;
     }
 
     @Override
     public int getCount() {
-        return person.size();
+        return persons.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return person.get(position);
+        return persons.get(position);
     }
 
     @Override
@@ -68,7 +68,7 @@ public class PersonItemAdapter extends BaseAdapter {
     }
 
     private void updateView(PersonViewHolder viewHolder, int position){
-        Person pers = person.get(position);
+        Person pers = persons.get(position);
         viewHolder.nom_prenom.setText(pers.getFullName());
         //Image button
         if(pers.isConnected()) {
@@ -93,7 +93,7 @@ public class PersonItemAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Integer pos = (Integer)v.getTag();
-                Person pers = person.get(pos);
+                Person pers = persons.get(pos);
                 System.out.println("Click pers: " + pers);
 
                 DeleteUserTask mAuthTask = new DeleteUserTask(p, context);
@@ -103,7 +103,7 @@ public class PersonItemAdapter extends BaseAdapter {
     }
 
     public List<Person> getPerson() {
-        return person;
+        return persons;
     }
 
     class PersonViewHolder{

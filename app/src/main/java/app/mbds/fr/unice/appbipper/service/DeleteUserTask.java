@@ -19,11 +19,10 @@ import app.mbds.fr.unice.appbipper.entity.Person;
  * Created by MBDS on 27/11/2016.
  */
 
-public class DeleteUserTask extends AsyncTask<Person, Void, String> {
+public class DeleteUserTask extends AsyncTask<Person, Void, Person> {
 
     private final Context context;
     private final PersonItemAdapter personItemAdapter;
-    private Person personne;
 
     public DeleteUserTask(PersonItemAdapter personItemAdapter, Context context) {
         this.context = context;
@@ -31,7 +30,7 @@ public class DeleteUserTask extends AsyncTask<Person, Void, String> {
     }
 
     @Override
-    protected String doInBackground(Person... params) {
+    protected Person doInBackground(Person... params) {
 
         //Verify params
         if( params.length <= 0 ){
@@ -40,8 +39,8 @@ public class DeleteUserTask extends AsyncTask<Person, Void, String> {
         Person person  = params[0];
 
         String server = context.getResources().getString(R.string.url_server);
-        String service = String.format(context.getString(R.string.url_service_person_delete), personne.getId());
-        System.out.println("ID " + personne.getId());
+        String service = String.format(context.getString(R.string.url_service_person_delete), person.getId());
+        System.out.println("ID " + person.getId());
 
         //Delete request
         try {
@@ -52,10 +51,16 @@ public class DeleteUserTask extends AsyncTask<Person, Void, String> {
             connection.setRequestMethod("DELETE");
             connection.connect();
 
-            String result = "" + connection.getResponseCode();
-            System.out.println("Response :"+result);
+            int result = connection.getResponseCode();
+            System.out.println("Response :" + result);
 
-            return result;
+            connection.disconnect();
+
+            if( 200 <= result && result < 300 ){
+                return person;
+            }else{
+                return null;
+            }
         } catch (IOException e) {
             e.printStackTrace();
             return null;
@@ -63,11 +68,9 @@ public class DeleteUserTask extends AsyncTask<Person, Void, String> {
     }
 
     @Override
-    protected void onPostExecute(final String success) {
-        System.out.println("success :"+success);
-
-        if(success.equals("200")) {
-            personItemAdapter.getPerson().remove(personne);
+    protected void onPostExecute(Person person) {
+        if( person != null) {
+            personItemAdapter.getPerson().remove(person);
             personItemAdapter.notifyDataSetChanged();
         }
 
