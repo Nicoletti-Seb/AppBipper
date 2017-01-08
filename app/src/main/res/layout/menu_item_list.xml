@@ -10,13 +10,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/menu_element_number"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textSize="@dimen/menu_item_size_label" />
+
     <TextView
         android:id="@+id/menu_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/text_number"
-        android:text="58693c395a4b708e2b04a07c"/>
+        android:text="58693c395a4b708e2b04a07c"
+        android:textSize="@dimen/menu_item_size_label" />
 
     <ImageView
         android:id="@+id/ic_server"
@@ -33,7 +36,8 @@
         android:text="Nicoletti Sébastien"
         android:layout_below="@+id/menu_number"
         android:layout_toRightOf="@+id/ic_server"
-        android:padding="@dimen/menu_item_txt_padding" />
+        android:padding="@dimen/menu_item_txt_padding"
+        android:textSize="@dimen/menu_item_size_label" />
 
     <ImageView
         android:id="@+id/ic_cooker"
@@ -50,7 +54,8 @@
         android:text="Nicoletti Sébastien"
         android:layout_below="@id/ic_server"
         android:layout_toRightOf="@+id/ic_cooker"
-        android:padding="@dimen/menu_item_txt_padding" />
+        android:padding="@dimen/menu_item_txt_padding"
+        android:textSize="@dimen/menu_item_size_label" />
 
 
 </RelativeLayout>

@@ -24,6 +24,10 @@
     <!-- menu order -->
     <dimen name="menu_margin_btn_add">3dp</dimen>
 
+    <!-- desc_menu -->
+    <dimen name="desc_menu_size_label">30dp</dimen>
+    <dimen name="desc_menu_margin_label_total">4dp</dimen>
+
     <!-- desc menu item dimens-->
     <dimen name="menu_order_el_min_width_picture">80dp</dimen>
     <dimen name="menu_order_el_min_height_picture">80dp</dimen>
@@ -51,8 +55,9 @@
     <dimen name="person_item_padding_left_label">20dp</dimen>
 
     <!-- menu_item_list -->
-    <dimen name="menu_item_ic_size">30dp</dimen>
+    <dimen name="menu_item_ic_size">40dp</dimen>
     <dimen name="menu_item_ic_margin">5dp</dimen>
     <dimen name="menu_item_txt_padding">10dp</dimen>
+    <dimen name="menu_item_size_label">20dp</dimen>
 
 </resources>

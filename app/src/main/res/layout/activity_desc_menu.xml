@@ -15,21 +15,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/menu_element_number"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textSize="@dimen/menu_item_size_label" />
+
     <TextView
         android:id="@+id/menu_desc_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/text_number"
-        android:text="58693c395a4b708e2b04a07c"/>
+        android:text="58693c395a4b708e2b04a07c"
+        android:textSize="@dimen/menu_item_size_label" />
 
-    <TextView
-        android:id="@+id/text_server"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/menu_element_server"
-        android:layout_below="@id/text_number"
-        android:textStyle="bold"/>
+    <ImageView
+        android:id="@+id/ic_server"
+        android:layout_width="@dimen/menu_item_ic_size"
+        android:layout_height="@dimen/menu_item_ic_size"
+        android:layout_below="@id/menu_desc_number"
+        android:layout_margin="@dimen/menu_item_ic_margin"
+        android:src="@drawable/ic_waiter" />
 
     <TextView
         android:id="@+id/menu_desc_server"
@@ -37,38 +40,45 @@
         android:layout_height="wrap_content"
         android:text="Nicoletti Sébastien"
         android:layout_below="@+id/menu_desc_number"
-        android:layout_toRightOf="@+id/text_server" />
+        android:layout_toRightOf="@+id/ic_server"
+        android:padding="@dimen/menu_item_txt_padding"
+        android:textSize="@dimen/menu_item_size_label" />
 
-    <TextView
-        android:id="@+id/text_cooker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/menu_element_cooker"
-        android:layout_below="@id/menu_desc_server"
-        android:textStyle="bold"/>
+    <ImageView
+        android:id="@+id/ic_cooker"
+        android:layout_width="@dimen/menu_item_ic_size"
+        android:layout_height="@dimen/menu_item_ic_size"
+        android:layout_below="@id/ic_server"
+        android:layout_margin="@dimen/menu_item_ic_margin"
+        android:src="@drawable/ic_chef" />
 
     <TextView
         android:id="@+id/menu_desc_cooker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nicoletti Sébastien"
-        android:layout_below="@id/menu_desc_server"
-        android:layout_toRightOf="@+id/text_cooker" />
+        android:layout_below="@id/ic_server"
+        android:layout_toRightOf="@+id/ic_cooker"
+        android:padding="@dimen/menu_item_txt_padding"
+        android:textSize="@dimen/menu_item_size_label" />
 
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/text_cooker"
+        android:layout_below="@id/menu_desc_cooker"
         android:layout_above="@+id/menu_desc_total_discount"/>
 
     <TextView
         android:id="@+id/text_discount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/text_price"
+        android:layout_above="@+id/menu_desc_total_price"
         android:layout_toLeftOf="@+id/menu_desc_total_discount"
-        android:text="Total Remise:"/>
+        android:text="@string/desc_menu_total_remise"
+        android:layout_marginBottom="@dimen/desc_menu_margin_label_total"
+        android:textStyle="bold"
+        android:textSize="@dimen/menu_item_size_label"/>
 
     <TextView
         android:id="@+id/menu_desc_total_discount"
@@ -76,7 +86,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/menu_desc_total_price"
         android:layout_alignParentRight="true"
-        android:text="50€"/>
+        android:text="50€"
+        android:textSize="@dimen/desc_menu_size_label"/>
 
     <TextView
         android:id="@+id/text_price"
@@ -84,7 +95,10 @@
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@+id/menu_desc_total_price"
         android:layout_alignParentBottom="true"
-        android:text="Total:"/>
+        android:text="@string/desc_menu_total"
+        android:layout_marginBottom="@dimen/desc_menu_margin_label_total"
+        android:textStyle="bold"
+        android:textSize="@dimen/menu_item_size_label"/>
 
     <TextView
         android:id="@+id/menu_desc_total_price"
@@ -92,7 +106,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:text="50€"/>
+        android:text="50€"
+        android:textSize="@dimen/desc_menu_size_label"/>
 
 
 </RelativeLayout>

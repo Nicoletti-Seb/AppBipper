@@ -103,4 +103,8 @@
 
     <string name="error_toast">Une erreur c&quot;est produite....</string>
 
+    <!-- desc_menu -->
+    <string name="desc_menu_total_remise">Total Remise : </string>
+    <string name="desc_menu_total">Total : </string>
+
 </resources>
