@@ -49,4 +49,10 @@
     <dimen name="person_item_remove_delete_btn_width">50dp</dimen>
 
     <dimen name="person_item_padding_left_label">20dp</dimen>
+
+    <!-- menu_item_list -->
+    <dimen name="menu_item_ic_size">30dp</dimen>
+    <dimen name="menu_item_ic_margin">5dp</dimen>
+    <dimen name="menu_item_txt_padding">10dp</dimen>
+
 </resources>
