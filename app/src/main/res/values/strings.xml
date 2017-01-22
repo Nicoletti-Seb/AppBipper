@@ -105,10 +105,14 @@
 
     <string name="error_toast">Une erreur c\'est produite....</string>
 
+    <!-- desc_menu -->
+    <string name="desc_menu_total_remise">Total Remise : </string>
+    <string name="desc_menu_total">Total : </string>
+
     <!-- buzz -->
     <string name="buzz_send">Votre notification a été envoyé !</string>
     <string name="buzz_user_not_connected">Le serveur n\'est pas connecté…</string>
-
+    
     <!-- API firebase -->
     <string name="api_key_firebase">AIzaSyAscubzqTgD6OdB64LGUHaSMbRKtnhrh7I</string>
 </resources>
