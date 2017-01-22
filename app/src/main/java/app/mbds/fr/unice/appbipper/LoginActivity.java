@@ -34,6 +34,8 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -46,12 +48,11 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 import app.mbds.fr.unice.appbipper.entity.Person;
+import app.mbds.fr.unice.appbipper.service.gms.AddKey;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -425,6 +426,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             if (jsonObject.get("success").getAsBoolean()) {
                 Person person = gson.fromJson(jsonObject.get("user"), Person.class);
                 ((BipperApplication)getApplication()).setUser(person);
+
+                //Update firebase token
+                String token = FirebaseInstanceId.getInstance().getToken();
+                person.setGcmKey(token);
+                new AddKey(LoginActivity.this).execute(person.getId(), token,
+                        getResources().getString(R.string.api_key_firebase));
+
+                FirebaseMessaging.getInstance().subscribeToTopic("topics");
 
                 Intent i = new Intent(LoginActivity.this, MenuActivity.class);
                 startActivity(i);

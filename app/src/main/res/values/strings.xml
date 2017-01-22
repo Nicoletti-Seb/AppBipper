@@ -48,6 +48,7 @@
     <string name="url_service_product_type">product?type=%1$s</string>
     <string name="url_service_menu">menu/</string>
     <string name="url_service_buzz">buzz/</string>
+    <string name="url_service_add_key">addkey/%1$s/%2$s/%3$s</string>
 
     <!-- list activity -->
     <string name="add_server">Ajouter un serveur</string>
@@ -79,7 +80,7 @@
 
 
     <string-array name="name_type_products">
-        <item>Appéritif</item>
+        <item>Apéritif</item>
         <item>Entrée</item>
         <!-- For keep space at the end of Plat
             http://stackoverflow.com/questions/1587056/how-to-keep-the-spaces-at-the-end-and-or-at-the-beginning-of-a-string -->
@@ -102,9 +103,12 @@
     <string name="menu_element_cooker">Cuisinier:</string>
 
 
-    <string name="error_toast">Une erreur c&quot;est produite....</string>
+    <string name="error_toast">Une erreur c\'est produite....</string>
 
     <!-- buzz -->
     <string name="buzz_send">Votre notification a été envoyé !</string>
     <string name="buzz_user_not_connected">Le serveur n\'est pas connecté…</string>
+
+    <!-- API firebase -->
+    <string name="api_key_firebase">AIzaSyAscubzqTgD6OdB64LGUHaSMbRKtnhrh7I</string>
 </resources>

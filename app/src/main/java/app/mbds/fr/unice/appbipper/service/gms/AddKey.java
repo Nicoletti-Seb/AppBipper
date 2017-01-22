@@ -1,83 +1,64 @@
-package app.mbds.fr.unice.appbipper.service;
+package app.mbds.fr.unice.appbipper.service.gms;
 
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.Serializable;
-import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
 
 import app.mbds.fr.unice.appbipper.R;
-import app.mbds.fr.unice.appbipper.adapter.PersonItemAdapter;
-import app.mbds.fr.unice.appbipper.entity.Person;
 
 /**
  * Created by MBDS on 27/11/2016.
  */
 
-public class BuzzTask extends AsyncTask<Person, Void, Boolean> {
+public class AddKey extends AsyncTask<String, Void, Boolean> {
 
-    private static final String TAG = "BuzzTask";
+    private static final String TAG = "AddKey";
 
     private Context context;
 
-    public BuzzTask(Context context) {
+    public AddKey(Context context) {
         this.context = context;
     }
 
 
     /**
-     * @param params: [receiver, sender]
+     * @param params: [idPerson, token, apiKey]
      * @return
      */
     @Override
-    protected Boolean doInBackground(Person... params) {
+    protected Boolean doInBackground(String... params) {
 
-        if(params.length < 2){
+        if(params.length < 3){
             return null;
         }
 
-        Buzz buzz = new Buzz();
-        buzz.receiver = params[0];
-        buzz.sender = params[1];
-        String stringJson = new Gson().toJson(buzz);
         boolean result = false;
+
+        String idPerson = params[0];
+        String token = params[1];
+        String apiKey = params[2];
+
         try {
             String server = context.getResources().getString(R.string.url_server);
-            String service = context.getString(R.string.url_service_buzz);
+            String service = String.format(context.getString(R.string.url_service_add_key),
+                    idPerson, token, apiKey);
 
             URL url = new URL(server + service);
 
             HttpURLConnection connection = (HttpURLConnection)url.openConnection();
             connection.setRequestProperty("Content-type", "application/json");
             connection.setRequestProperty("Accept", "application/json");
-            connection.setRequestMethod("POST");
+            connection.setRequestMethod("GET");
             connection.setAllowUserInteraction(false);
             connection.connect();
 
-            //Write data
-            OutputStreamWriter osw = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
-            osw.write(stringJson);
-            osw.flush();
-            osw.close();
 
             int codeResponse = connection.getResponseCode();
             if( 200 <= codeResponse && codeResponse < 300){
@@ -105,16 +86,8 @@ public class BuzzTask extends AsyncTask<Person, Void, Boolean> {
 
     @Override
     protected void onPostExecute(Boolean result) {
-        if(result){
-            Toast.makeText(context, R.string.buzz_send, Toast.LENGTH_LONG).show();
-        }else{
+        if(!result){
             Toast.makeText(context, R.string.error_toast, Toast.LENGTH_LONG).show();
         }
-    }
-
-
-    private class Buzz implements Serializable{
-        Person receiver;
-        Person sender;
     }
 }

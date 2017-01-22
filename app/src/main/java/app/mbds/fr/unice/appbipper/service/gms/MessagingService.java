@@ -6,30 +6,41 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.WakefulBroadcastReceiver;
+import android.util.Log;
 
-import com.google.android.gms.gcm.GcmListenerService;
+import com.google.firebase.messaging.FirebaseMessagingService;
+import com.google.firebase.messaging.RemoteMessage;
 
 import app.mbds.fr.unice.appbipper.MainActivity;
 
 /**
  * Created by 53js-Seb on 03/01/2017.
  *
- * Listener when device received a notification display a notification
+ * The class receive notifications from android system.
  */
 
-public class GcmNotificationListenerServiceImpl extends GcmListenerService{
+public class MessagingService extends FirebaseMessagingService {
 
+    private static final String TAG = "MessasingService";
 
 
     @Override
-    public void onMessageReceived(String from, Bundle data) {
-        super.onMessageReceived(from, data);
+    public void onMessageReceived(RemoteMessage remoteMessage) {
 
-        //TODO on message received
+        Log.i(TAG, "From: " + remoteMessage.getFrom());
+
+        if (remoteMessage.getData().size() > 0) {
+            Log.i(TAG, "Message data payload: " + remoteMessage.getData());
+        }
+
+        if (remoteMessage.getNotification() != null) {
+            Log.i(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
+            displayNotification(remoteMessage.getNotification().getBody());
+        }
+
     }
-
 
     private void displayNotification(String message) {
         Intent intent = new Intent(this, MainActivity.class);
@@ -51,5 +62,7 @@ public class GcmNotificationListenerServiceImpl extends GcmListenerService{
 
         notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
     }
+
+
 
 }
