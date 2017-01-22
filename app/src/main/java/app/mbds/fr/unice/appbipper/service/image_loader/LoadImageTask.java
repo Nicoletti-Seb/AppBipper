@@ -26,8 +26,12 @@ public class LoadImageTask extends AsyncTask<String, Void, Bitmap> {
     @Override
     protected Bitmap doInBackground(String... params) {
         String url = params[0];
-        ImageMemoryCache cache = ImageMemoryCache.getInstance();
 
+        if(url == null){
+            return null;
+        }
+
+        ImageMemoryCache cache = ImageMemoryCache.getInstance();
         synchronized (cache){
             Bitmap image = cache.get(url);
 
