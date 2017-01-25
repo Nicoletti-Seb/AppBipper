@@ -10,64 +10,19 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="app.mbds.fr.unice.appbipper.MenuDescActivity">
 
-    <TextView
-        android:id="@+id/text_number"
-        android:layout_width="wrap_content"
+    <include
+        android:id="@+id/summary_menu"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/menu_element_number"
-        android:textStyle="bold"
-        android:textSize="@dimen/menu_item_size_label" />
-
-    <TextView
-        android:id="@+id/menu_desc_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/text_number"
-        android:text="58693c395a4b708e2b04a07c"
-        android:textSize="@dimen/menu_item_size_label" />
-
-    <ImageView
-        android:id="@+id/ic_server"
-        android:layout_width="@dimen/menu_item_ic_size"
-        android:layout_height="@dimen/menu_item_ic_size"
-        android:layout_below="@id/menu_desc_number"
-        android:layout_margin="@dimen/menu_item_ic_margin"
-        android:src="@drawable/ic_waiter" />
-
-    <TextView
-        android:id="@+id/menu_desc_server"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nicoletti Sébastien"
-        android:layout_below="@+id/menu_desc_number"
-        android:layout_toRightOf="@+id/ic_server"
-        android:padding="@dimen/menu_item_txt_padding"
-        android:textSize="@dimen/menu_item_size_label" />
-
-    <ImageView
-        android:id="@+id/ic_cooker"
-        android:layout_width="@dimen/menu_item_ic_size"
-        android:layout_height="@dimen/menu_item_ic_size"
-        android:layout_below="@id/ic_server"
-        android:layout_margin="@dimen/menu_item_ic_margin"
-        android:src="@drawable/ic_chef" />
-
-    <TextView
-        android:id="@+id/menu_desc_cooker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nicoletti Sébastien"
-        android:layout_below="@id/ic_server"
-        android:layout_toRightOf="@+id/ic_cooker"
-        android:padding="@dimen/menu_item_txt_padding"
-        android:textSize="@dimen/menu_item_size_label" />
+        layout="@layout/menu_item_list"/>
 
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/menu_desc_cooker"
-        android:layout_above="@+id/menu_desc_total_discount"/>
+        android:layout_below="@id/summary_menu"
+        android:layout_above="@+id/menu_desc_total_discount"
+        />
 
     <TextView
         android:id="@+id/text_discount"
@@ -78,16 +33,28 @@
         android:text="@string/desc_menu_total_remise"
         android:layout_marginBottom="@dimen/desc_menu_margin_label_total"
         android:textStyle="bold"
-        android:textSize="@dimen/menu_item_size_label"/>
+        android:textSize="@dimen/menu_item_size_label"
+        android:textColor="@android:color/black"/>
 
     <TextView
         android:id="@+id/menu_desc_total_discount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/menu_desc_total_price"
+        android:layout_toLeftOf="@+id/total_discount_unit"
+        android:text="50"
+        android:textSize="@dimen/desc_menu_size_label"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/total_discount_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/total_unit"
         android:layout_alignParentRight="true"
-        android:text="50€"
-        android:textSize="@dimen/desc_menu_size_label"/>
+        android:text="@string/units_money"
+        android:textSize="@dimen/desc_menu_size_label"
+        android:textColor="@android:color/black"/>
 
     <TextView
         android:id="@+id/text_price"
@@ -98,16 +65,28 @@
         android:text="@string/desc_menu_total"
         android:layout_marginBottom="@dimen/desc_menu_margin_label_total"
         android:textStyle="bold"
-        android:textSize="@dimen/menu_item_size_label"/>
+        android:textSize="@dimen/menu_item_size_label"
+        android:textColor="@android:color/black"/>
 
     <TextView
         android:id="@+id/menu_desc_total_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/total_unit"
+        android:layout_alignParentBottom="true"
+        android:text="50"
+        android:textSize="@dimen/desc_menu_size_label"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/total_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:text="50€"
-        android:textSize="@dimen/desc_menu_size_label"/>
+        android:text="@string/units_money"
+        android:textSize="@dimen/desc_menu_size_label"
+        android:textColor="@android:color/black"/>
 
 
 </RelativeLayout>

@@ -28,30 +28,43 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" />
+        <activity
+            android:name=".RegisterActivity"
+            android:label="@string/title_register"/>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login" />
-        <activity android:name=".MenuActivity" />
+            android:label="@string/title_login" />
+        <activity
+            android:name=".MenuActivity"
+            android:label="@string/title_menu"/>
+
+        <activity
+            android:name=".ServerActivity"
+            android:label="@string/title_server"/>
+        <activity
+            android:name=".MenuListActivity"
+            android:label="@string/title_menu_list"/>
+        <activity
+            android:name=".CreateMenuActivity"
+            android:label="@string/title_create_menu"/>
+        <activity
+            android:name=".DescProduct"
+            android:label="@string/title_desc_product"/>
+        <activity
+            android:name=".PersonListActivity"
+            android:label="@string/title_person_list"/>
+        <activity
+            android:name=".MenuDescActivity"
+            android:label="@string/title_desc_menu"/>
+
+        <!-- Services Firebase -->
 
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-
-        <activity
-            android:name=".ServerActivity"
-            android:label="@string/title_activity_list" />
-        <activity android:name=".MenuListActivity" />
-        <activity android:name=".CreateMenuActivity" />
-        <activity android:name=".DescProduct" />
-        <activity android:name=".PersonListActivity" />
-        <activity android:name=".MenuDescActivity"></activity>
-
-        <!-- Services Firebase -->
 
         <service
             android:name=".service.gms.InstanceIDListenerService">

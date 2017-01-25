@@ -2,9 +2,10 @@ package app.mbds.fr.unice.appbipper;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -18,7 +19,7 @@ import app.mbds.fr.unice.appbipper.entity.Product;
 import app.mbds.fr.unice.appbipper.fragment.ProductListFragment;
 import app.mbds.fr.unice.appbipper.service.CreateMenuTask;
 
-public class CreateMenuActivity extends FragmentActivity implements View.OnClickListener{
+public class CreateMenuActivity extends AppCompatActivity implements View.OnClickListener{
     private static final int REQUEST_CODE_ASK_PERSON = 0;
 
     private Person user;
@@ -38,6 +39,7 @@ public class CreateMenuActivity extends FragmentActivity implements View.OnClick
         user = ((BipperApplication)getApplication()).getUser();
 
         setContentView(R.layout.activity_product_list);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //init fragments
         initFragments();
@@ -99,5 +101,15 @@ public class CreateMenuActivity extends FragmentActivity implements View.OnClick
             new CreateMenuTask(this).execute(menu);
             finish();
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

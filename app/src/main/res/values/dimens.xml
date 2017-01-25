@@ -28,18 +28,20 @@
     <dimen name="desc_menu_size_label">30dp</dimen>
     <dimen name="desc_menu_margin_label_total">4dp</dimen>
 
-    <!-- desc menu item dimens-->
-    <dimen name="menu_order_el_min_width_picture">80dp</dimen>
-    <dimen name="menu_order_el_min_height_picture">80dp</dimen>
-    <dimen name="menu_order_el_max_width_picture">80dp</dimen>
-    <dimen name="menu_order_el_max_height_picture">80dp</dimen>
+    <!-- desc_menu_item dimens-->
+    <dimen name="desc_menu_item_min_width_picture">80dp</dimen>
+    <dimen name="desc_menu_item_min_height_picture">80dp</dimen>
+    <dimen name="desc_menu_item_max_width_picture">80dp</dimen>
+    <dimen name="desc_menu_item_max_height_picture">80dp</dimen>
 
-    <dimen name="menu_order_el_min_width_search_picture">50dp</dimen>
-    <dimen name="menu_order_el_min_height_search_picture">50dp</dimen>
-    <dimen name="menu_order_el_max_width_search_picture">80dp</dimen>
-    <dimen name="menu_order_el_max_height_search_picture">80dp</dimen>
+    <dimen name="desc_menu_item_min_width_search_picture">50dp</dimen>
+    <dimen name="desc_menu_item_height_search_picture">50dp</dimen>
+    <dimen name="desc_menu_item_max_width_search_picture">80dp</dimen>
+    <dimen name="desc_menu_item_max_height_search_picture">80dp</dimen>
 
-    <dimen name="menu_order_el_margin">2dp</dimen>
+    <dimen name="desc_menu_item_margin">2dp</dimen>
+    <dimen name="desc_menu_item_text_desc_size">15dp</dimen>
+    <dimen name="desc_menu_item_text_price_size">24dp</dimen>
 
     <!-- icon connection dimens -->
     <dimen name="circle_icon_connection_width">100dp</dimen>
@@ -55,9 +57,16 @@
     <dimen name="person_item_padding_left_label">20dp</dimen>
 
     <!-- menu_item_list -->
-    <dimen name="menu_item_ic_size">40dp</dimen>
+    <dimen name="menu_item_ic_size">48dp</dimen>
     <dimen name="menu_item_ic_margin">5dp</dimen>
     <dimen name="menu_item_txt_padding">10dp</dimen>
     <dimen name="menu_item_size_label">20dp</dimen>
+
+    <!-- desc_product -->
+    <dimen name="desc_product_text_size_title">30dp</dimen>
+    <dimen name="desc_product_padding">10dp</dimen>
+    <dimen name="desc_product_text_desc_margin">10dp</dimen>
+    <dimen name="desc_product_size_text_desc">20dp</dimen>
+    <dimen name="desc_product_size_text_value">25dp</dimen>
 
 </resources>

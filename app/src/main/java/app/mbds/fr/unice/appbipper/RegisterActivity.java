@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,6 +40,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //init listener button
         Button buttonRegister = (Button)findViewById(R.id.register_send);
@@ -79,92 +81,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         new RegisterTask(this).execute(person);
     }
 
-/*
-    private class RegisterTask extends AsyncTask<Person, Void, Boolean>{
-
-        @Override
-        protected Boolean doInBackground(Person... params) {
-            //Verify params
-            if( params.length <= 0 ){
-                return null;
-            }
-            Person person  = params[0];
-
-            //Post request
-            Gson g = new Gson();
-            String stringJson = g.toJson(person);
-            boolean result = false;
-            try {
-                URL url = new URL(getString(R.string.url_server) + getString(R.string.url_service_person));
-                HttpURLConnection connection = (HttpURLConnection)url.openConnection();
-                connection.setRequestProperty("Content-Type", "application/json");
-                connection.setRequestProperty("Charset", "UTF-8");
-                connection.setRequestMethod("POST");
-                connection.setDoOutput(true);
-                connection.setChunkedStreamingMode(0);
-                connection.connect();
-
-                //Write data
-                OutputStreamWriter osw = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
-                osw.write(stringJson);
-                osw.flush();
-                osw.close();
-
-                if( connection.getResponseCode() ==  HttpURLConnection.HTTP_CREATED ){
-                    result = true;
-                }
-
-                //Close
-                connection.disconnect();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-                return false;
-            }
-
-            return result;
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
         }
-
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            showProgressDialog(true);
-        }
-
-        @Override
-        protected void onPostExecute(Boolean bool) {
-            super.onPostExecute(bool);
-            showProgressDialog(false);
-            RegisterActivity.this.finish();
-            Toast.makeText(RegisterActivity.this, R.string.inscription_ok, Toast.LENGTH_LONG).show();
-        }
-
-
-        private ProgressDialog progressDialog;
-        public void showProgressDialog(boolean isVisible) {
-            if (isVisible) {
-                if(progressDialog==null) {
-                    progressDialog = new ProgressDialog(RegisterActivity.this);
-                    progressDialog.setMessage(getResources().getString(R.string.please_wait));
-                    progressDialog.setCancelable(false);
-                    progressDialog.setIndeterminate(true);
-                    progressDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                        @Override
-                        public void onDismiss(DialogInterface dialog) {
-                            progressDialog = null;
-                        }
-                    });
-                    progressDialog.show();
-                }
-            }
-            else {
-                if(progressDialog!=null) {
-                    progressDialog.dismiss();
-                }
-            }
-        }
-
-
-    }*/
+        return super.onOptionsItemSelected(item);
+    }
 }

@@ -3,8 +3,11 @@ package app.mbds.fr.unice.appbipper;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -16,7 +19,8 @@ import app.mbds.fr.unice.appbipper.entity.Menu;
 import app.mbds.fr.unice.appbipper.entity.Person;
 import app.mbds.fr.unice.appbipper.service.MenuTask;
 
-public class MenuListActivity extends ListActivity implements View.OnClickListener{
+public class MenuListActivity extends AppCompatActivity
+        implements View.OnClickListener, AdapterView.OnItemClickListener{
 
     private static final String TAG = "MenuListActivity";
 
@@ -35,11 +39,15 @@ public class MenuListActivity extends ListActivity implements View.OnClickListen
         user = ((BipperApplication)getApplication()).getUser();
 
         setContentView(R.layout.activity_menu_list);
-        setTitle(R.string.list_menu_title);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //Init list
         MenuItemAdapter adapter = new MenuItemAdapter(this, menus);
-        setListAdapter(adapter);
+        ListView listView = (ListView) findViewById(android.R.id.list);
+        listView.setOnItemClickListener(this);
+        listView.setAdapter(adapter);
+
+
         new MenuTask(adapter, this).execute();
 
         //init listener button
@@ -56,11 +64,21 @@ public class MenuListActivity extends ListActivity implements View.OnClickListen
     }
 
     @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Menu menu = menus.get(position);
 
         Intent i = new Intent(this, MenuDescActivity.class);
         i.putExtra(MenuDescActivity.PARAM_MENU, menu);
         startActivity(i);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

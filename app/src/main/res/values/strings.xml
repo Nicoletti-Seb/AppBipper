@@ -2,6 +2,17 @@
     <!-- Menu -->
     <string name="app_name">AppBipper</string>
 
+    <!-- titles -->
+    <string name="title_register">S\'enregistrer</string>
+    <string name="title_login">Se connecter</string>
+    <string name="title_server">Les serveurs</string>
+    <string name="title_menu">Accueil</string>
+    <string name="title_menu_list">Les menus</string>
+    <string name="title_create_menu">Créer un menu</string>
+    <string name="title_desc_product">Le produit</string>
+    <string name="title_person_list">Choisir le cuisinier</string>
+    <string name="title_desc_menu">Le menu</string>
+
     <!-- Register activity -->
     <string name="register_message">Veuillez saisir vos informations</string>
     <string name="register_male">Masculin</string>
@@ -23,7 +34,6 @@
     <string name="sign">Se connecter</string>
     <string name="login_tooltip">Merci de vous connecter pour acceder à l\'application</string>
     <string name="forgot_password">Mot de passe oublié?</string>
-    <string name="title_activity_login">Sign in</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
     <string name="action_sign_in">Se connecter</string>
@@ -112,7 +122,11 @@
     <!-- buzz -->
     <string name="buzz_send">Votre notification a été envoyé !</string>
     <string name="buzz_user_not_connected">Le serveur n\'est pas connecté…</string>
-    
+
     <!-- API firebase -->
     <string name="api_key_firebase">AIzaSyAscubzqTgD6OdB64LGUHaSMbRKtnhrh7I</string>
+    
+    <!-- units of money -->
+    <string name="units_money">€</string>
+    <string name="units_calorie">KJ</string>
 </resources>

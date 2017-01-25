@@ -7,10 +7,10 @@
 
     <ImageView
         android:id="@+id/product_el_picture"
-        android:layout_width="@dimen/menu_order_el_min_width_picture"
-        android:layout_height="@dimen/menu_order_el_min_height_picture"
+        android:layout_width="@dimen/desc_menu_item_min_width_picture"
+        android:layout_height="@dimen/desc_menu_item_min_height_picture"
         android:src="@drawable/ic_restaurant_black_24dp"
-        android:layout_margin="@dimen/menu_order_el_margin"/>
+        android:layout_margin="@dimen/desc_menu_item_margin"/>
 
     <TextView
         android:id="@+id/product_el_title"
@@ -21,7 +21,7 @@
         android:layout_toRightOf="@+id/product_el_picture"
         android:layout_alignTop="@+id/product_el_picture"
         android:textColor="@android:color/black"
-        android:textSize="15dp"
+        android:textSize="@dimen/desc_menu_item_text_desc_size"
         android:textStyle="bold"/>
 
     <TextView
@@ -29,10 +29,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/product_el_title"
-        android:layout_alignParentRight="true"
+        android:layout_toLeftOf="@+id/price_unit"
         android:textColor="@android:color/black"
-        android:textSize="24dp"
+        android:textSize="@dimen/desc_menu_item_text_price_size"
         android:textStyle="bold"
-        android:text="50€"/>
+        android:text="50"/>
+
+    <TextView
+        android:id="@+id/price_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_el_title"
+        android:layout_alignParentRight="true"
+        android:text="@string/units_money"
+        android:textSize="@dimen/desc_menu_item_text_price_size"
+        android:textColor="@android:color/black"/>
 
 </RelativeLayout>
