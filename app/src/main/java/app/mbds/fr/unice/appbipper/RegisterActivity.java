@@ -56,13 +56,45 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         passVerify = (EditText) findViewById(R.id.register_pass_verify);
     }
 
+    private boolean verifyForm(){
+        String emailString = email.getText().toString();
+        String passString = pass.getText().toString();
+        String passVerifyString = passVerify.getText().toString();
+
+        if(emailString.isEmpty()){
+            email.setError(getString(R.string.inscription_error_field_empty));
+            email.setText("");
+            return false;
+        }
+
+        if(passString.isEmpty()){
+            pass.setError(getString(R.string.inscription_error_field_empty));
+            pass.setText("");
+            return false;
+        }
+
+        //Identical password
+        if(!passString.equals(passVerifyString)){
+            String errorMessage = getString(R.string.inscription_error_identical_password);
+            pass.setError(errorMessage);
+            passVerify.setError(errorMessage);
+
+            pass.setText("");
+            passVerify.setText("");
+            return false;
+        }
+
+        return true;
+    }
+
     @Override
     public void onClick(View v) {
+        //reset error
+        pass.setError(null);
+        passVerify.setError(null);
+        email.setError(null);
 
-        String passString = pass.getText().toString();
-        String passVerifyString = pass.getText().toString();
-
-        if( !passString.equals(passVerifyString) ){
+        if(!verifyForm()){
             return;
         }
 
@@ -71,7 +103,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         person.setPrenom(firstname.getText().toString());
         person.setTelephone(phone.getText().toString());
         person.setEmail(email.getText().toString());
-        person.setPassword(passString);
+        person.setPassword(pass.getText().toString());
         person.setCreatedBy(person.getPrenom());
 
         int idRadio = radioGroup.getCheckedRadioButtonId();

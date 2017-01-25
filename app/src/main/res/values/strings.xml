@@ -25,6 +25,8 @@
     <string name="register_password">Mot de passe</string>
     <string name="register_password_verify">Confirmation mot de passe</string>
     <string name="please_wait">Loading...</string>
+    <string name="inscription_error_field_empty">Le champ est vide...</string>
+    <string name="inscription_error_identical_password">Mot de passe non identique...</string>
     <string name="inscription_ok">Inscription terminée !</string>
 
     <!-- main activity -->
