@@ -20,21 +20,29 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
         user = ((BipperApplication)getApplication()).getUser();
 
-        Button gotolist = (Button)findViewById(R.id.button_list);
-        gotolist.setOnClickListener(this);
+        Button servers = (Button)findViewById(R.id.button_list);
+        servers.setOnClickListener(this);
 
         Button btnCreateMenu = (Button)findViewById(R.id.button_create_menu);
         btnCreateMenu.setOnClickListener(this);
+
+        Button myMenus = (Button)findViewById(R.id.button_my_menu);
+        myMenus.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
+        Intent i = null;
         switch (v.getId()) {
             case R.id.button_list:
                 startActivity(new Intent(this, ServerActivity.class));
                 break;
             case R.id.button_create_menu:
-                Intent i = new Intent(this, MenuListActivity.class);
+                i = new Intent(this, MenuListActivity.class);
+                startActivity(i);
+                break;
+            case R.id.button_my_menu:
+                i = new Intent(this, MyMenuListActivity.class);
                 startActivity(i);
                 break;
         }

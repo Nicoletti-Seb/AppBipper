@@ -8,6 +8,7 @@
     <string name="title_server">Les serveurs</string>
     <string name="title_menu">Accueil</string>
     <string name="title_menu_list">Les menus</string>
+    <string name="title_my_menu_list">Mes menus</string>
     <string name="title_create_menu">Créer un menu</string>
     <string name="title_desc_product">Le produit</string>
     <string name="title_person_list">Choisir le cuisinier</string>
@@ -50,6 +51,8 @@
 
     <!-- Menu Activity -->
     <string name="menu_create_menu">Créer un menu</string>
+    <string name="menu_my_menu">Mes menus</string>
+    <string name="menu_servers">Les servers</string>
 
     <!-- URL -->
     <string name="url_server">http://95.142.161.35:8080/</string>
@@ -59,6 +62,7 @@
     <string name="url_service_product">product/</string>
     <string name="url_service_product_type">product?type=%1$s</string>
     <string name="url_service_menu">menu/</string>
+    <string name="url_service_my_menu">menu/%1$s</string>
     <string name="url_service_buzz">buzz/</string>
     <string name="url_service_add_key">addkey/%1$s/%2$s/%3$s</string>
 

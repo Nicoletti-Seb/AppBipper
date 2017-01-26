@@ -1,16 +1,9 @@
 package app.mbds.fr.unice.appbipper.service.gms;
 
-
-import android.widget.Toast;
-
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
-;import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 import app.mbds.fr.unice.appbipper.BipperApplication;
-import app.mbds.fr.unice.appbipper.LoginActivity;
 import app.mbds.fr.unice.appbipper.R;
 import app.mbds.fr.unice.appbipper.entity.Person;
 

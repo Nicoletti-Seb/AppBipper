@@ -47,6 +47,10 @@
         <activity
             android:name=".MenuListActivity"
             android:label="@string/title_menu_list"/>
+
+        <activity
+            android:name=".MyMenuListActivity"
+            android:label="@string/title_my_menu_list"/>
         <activity
             android:name=".CreateMenuActivity"
             android:label="@string/title_create_menu"/>
