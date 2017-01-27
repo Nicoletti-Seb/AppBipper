@@ -32,7 +32,7 @@
 
     <Button
         android:id="@+id/button_create_menu"
-        android:layout_below="@id/button_list"
+        android:layout_below="@+id/button_list"
         android:text="@string/menu_create_menu"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -42,9 +42,42 @@
         style="@style/button_white" />
 
     <Button
+        android:id="@+id/button_all_menus"
+        android:layout_below="@+id/button_create_menu"
+        android:text="@string/menu_all_menu"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_button_white"
+        android:layout_marginTop="@dimen/menu_margin_component_top"
+        android:layout_marginBottom="@dimen/menu_margin_component_bottom"
+        style="@style/button_white" />
+
+    <Button
         android:id="@+id/button_my_menu"
-        android:layout_below="@id/button_create_menu"
+        android:layout_below="@+id/button_all_menus"
         android:text="@string/menu_my_menu"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_button_white"
+        android:layout_marginTop="@dimen/menu_margin_component_top"
+        android:layout_marginBottom="@dimen/menu_margin_component_bottom"
+        style="@style/button_white" />
+
+    <Button
+        android:id="@+id/button_all_notifications"
+        android:layout_below="@+id/button_my_menu"
+        android:text="@string/menu_all_notifications"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_button_white"
+        android:layout_marginTop="@dimen/menu_margin_component_top"
+        android:layout_marginBottom="@dimen/menu_margin_component_bottom"
+        style="@style/button_white" />
+
+    <Button
+        android:id="@+id/button_my_notifications"
+        android:layout_below="@+id/button_all_notifications"
+        android:text="@string/menu_my_notifications"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/custom_button_white"

@@ -6,13 +6,15 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    
-    <!--keep the processor from sleeping when a message is received. -->
+
+    <!-- keep the processor from sleeping when a message is received. -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <!-- GMS permission -->
-    <permission android:name="app.mbds.fr.unice.appbipper.permission.C2D_MESSAGE"
+    <permission
+        android:name="app.mbds.fr.unice.appbipper.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
+
     <uses-permission android:name="app.mbds.fr.unice.appbipper.permission.C2D_MESSAGE" />
 
     <!-- Internet permission -->
@@ -28,60 +30,64 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".RegisterActivity"
-            android:label="@string/title_register"/>
+            android:label="@string/title_register" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_login" />
         <activity
             android:name=".MenuActivity"
-            android:label="@string/title_menu"/>
-
+            android:label="@string/title_menu" />
         <activity
             android:name=".ServerActivity"
-            android:label="@string/title_server"/>
+            android:label="@string/title_server" />
         <activity
             android:name=".MenuListActivity"
-            android:label="@string/title_menu_list"/>
-
+            android:label="@string/title_menu_list" />
         <activity
             android:name=".MyMenuListActivity"
-            android:label="@string/title_my_menu_list"/>
+            android:label="@string/title_my_menu_list" />
         <activity
             android:name=".CreateMenuActivity"
-            android:label="@string/title_create_menu"/>
+            android:label="@string/title_create_menu" />
         <activity
             android:name=".DescProduct"
-            android:label="@string/title_desc_product"/>
+            android:label="@string/title_desc_product" />
         <activity
             android:name=".PersonListActivity"
-            android:label="@string/title_person_list"/>
+            android:label="@string/title_person_list" />
         <activity
             android:name=".MenuDescActivity"
-            android:label="@string/title_desc_menu"/>
+            android:label="@string/title_desc_menu" />
+
+        <activity
+            android:name=".NotificationListActivity"
+            android:label="@string/title_notification"/>
+        <activity
+            android:name=".MyNotificationListActivity"
+            android:label="@string/title_my_notification"/>
 
         <!-- Services Firebase -->
-
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <service
-            android:name=".service.gms.InstanceIDListenerService">
+        <service android:name=".service.gms.InstanceIDListenerService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".service.gms.MessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
-        <service
-            android:name=".service.gms.MessagingService">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-            </intent-filter>
-        </service>
     </application>
+
 </manifest>

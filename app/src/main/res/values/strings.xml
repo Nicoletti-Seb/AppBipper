@@ -13,6 +13,8 @@
     <string name="title_desc_product">Le produit</string>
     <string name="title_person_list">Choisir le cuisinier</string>
     <string name="title_desc_menu">Le menu</string>
+    <string name="title_notification">Les notifications</string>
+    <string name="title_my_notification">Mes notifications</string>
 
     <!-- Register activity -->
     <string name="register_message">Veuillez saisir vos informations</string>
@@ -51,7 +53,10 @@
 
     <!-- Menu Activity -->
     <string name="menu_create_menu">Créer un menu</string>
+    <string name="menu_all_menu">Tous les menus</string>
     <string name="menu_my_menu">Mes menus</string>
+    <string name="menu_all_notifications">Toutes les notifications</string>
+    <string name="menu_my_notifications">Mes notifications</string>
     <string name="menu_servers">Les servers</string>
 
     <!-- URL -->
@@ -65,6 +70,8 @@
     <string name="url_service_my_menu">menu/%1$s</string>
     <string name="url_service_buzz">buzz/</string>
     <string name="url_service_add_key">addkey/%1$s/%2$s/%3$s</string>
+    <string name="url_service_notification">buzz/</string>
+    <string name="url_service_my_notification">buzz/%1$s</string>
 
     <!-- list activity -->
     <string name="add_server">Ajouter un serveur</string>
@@ -132,7 +139,7 @@
 
     <!-- API firebase -->
     <string name="api_key_firebase">AIzaSyAscubzqTgD6OdB64LGUHaSMbRKtnhrh7I</string>
-    
+
     <!-- units of money -->
     <string name="units_money">€</string>
     <string name="units_calorie">KJ</string>

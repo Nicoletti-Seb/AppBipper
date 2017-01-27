@@ -72,15 +72,7 @@ public class PersonTask extends AsyncTask<Void, Void, String> {
     }
 
     @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-        //Afficher un loading "Patientez, inscription en cours..."
-    }
-
-    @Override
     protected void onPostExecute(String theResponse) {
-        System.out.println("Reponse " + theResponse);
-
         //https://static.javadoc.io/com.google.code.gson/gson/2.6.2/com/google/gson/reflect/TypeToken.html
         Type listType = new TypeToken<ArrayList<Person>>() {}.getType();
         List<Person> list = new Gson().fromJson(theResponse, listType);

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+
+    <ImageView
+        android:id="@+id/ic_sender"
+        android:layout_width="@dimen/menu_item_ic_size"
+        android:layout_height="@dimen/menu_item_ic_size"
+        android:layout_margin="@dimen/menu_item_ic_margin"
+        android:src="@drawable/ic_send_black_24dp" />
+
+    <TextView
+        android:id="@+id/notification_sender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nicoletti Sébastien"
+        android:layout_toRightOf="@+id/ic_sender"
+        android:padding="@dimen/menu_item_txt_padding"
+        android:textSize="@dimen/menu_item_size_label"
+        android:textColor="@android:color/black"/>
+
+    <ImageView
+        android:id="@+id/ic_cooker"
+        android:layout_width="@dimen/menu_item_ic_size"
+        android:layout_height="@dimen/menu_item_ic_size"
+        android:layout_below="@id/ic_sender"
+        android:layout_margin="@dimen/menu_item_ic_margin"
+        android:src="@drawable/ic_receipt_black_24dp" />
+
+    <TextView
+        android:id="@+id/notification_receiver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nicoletti Sébastien"
+        android:layout_below="@id/ic_sender"
+        android:layout_toRightOf="@+id/ic_cooker"
+        android:padding="@dimen/menu_item_txt_padding"
+        android:textSize="@dimen/menu_item_size_label"
+        android:textColor="@android:color/black"/>
+
+
+</RelativeLayout>

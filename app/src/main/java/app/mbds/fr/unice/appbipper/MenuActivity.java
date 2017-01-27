@@ -26,8 +26,17 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         Button btnCreateMenu = (Button)findViewById(R.id.button_create_menu);
         btnCreateMenu.setOnClickListener(this);
 
+        Button allMenus = (Button)findViewById(R.id.button_all_menus);
+        allMenus.setOnClickListener(this);
+
         Button myMenus = (Button)findViewById(R.id.button_my_menu);
         myMenus.setOnClickListener(this);
+
+        Button allNotification = (Button)findViewById(R.id.button_all_notifications);
+        allNotification.setOnClickListener(this);
+
+        Button myNotifications = (Button)findViewById(R.id.button_my_notifications);
+        myNotifications.setOnClickListener(this);
     }
 
     @Override
@@ -38,11 +47,22 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, ServerActivity.class));
                 break;
             case R.id.button_create_menu:
+                startActivity(new Intent(this, CreateMenuActivity.class));
+                break;
+            case R.id.button_all_menus:
                 i = new Intent(this, MenuListActivity.class);
                 startActivity(i);
                 break;
             case R.id.button_my_menu:
                 i = new Intent(this, MyMenuListActivity.class);
+                startActivity(i);
+                break;
+            case R.id.button_all_notifications:
+                i = new Intent(this, NotificationListActivity.class);
+                startActivity(i);
+                break;
+            case R.id.button_my_notifications:
+                i = new Intent(this, MyNotificationListActivity.class);
                 startActivity(i);
                 break;
         }
