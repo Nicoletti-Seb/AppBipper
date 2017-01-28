@@ -3,6 +3,8 @@ package app.mbds.fr.unice.appbipper;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,7 +17,6 @@ import java.util.List;
 import app.mbds.fr.unice.appbipper.adapter.MenuItemAdapter;
 import app.mbds.fr.unice.appbipper.entity.Menu;
 import app.mbds.fr.unice.appbipper.entity.Person;
-import app.mbds.fr.unice.appbipper.service.MenuTask;
 import app.mbds.fr.unice.appbipper.service.MyMenuTask;
 
 public class MyMenuListActivity extends AppCompatActivity
@@ -24,6 +25,7 @@ public class MyMenuListActivity extends AppCompatActivity
     private static final String TAG = "MyMenuListActivity";
 
     //Model
+    private MenuItemAdapter adapter;
     private Person user;
     private List<Menu> menus = new ArrayList<>();
 
@@ -42,11 +44,10 @@ public class MyMenuListActivity extends AppCompatActivity
 
 
         //Init list
-        MenuItemAdapter adapter = new MenuItemAdapter(this, menus);
+        adapter = new MenuItemAdapter(this, menus);
         ListView listView = (ListView) findViewById(android.R.id.list);
         listView.setOnItemClickListener(this);
         listView.setAdapter(adapter);
-
 
         new MyMenuTask(adapter, this).execute(user.getId());
 
@@ -72,11 +73,27 @@ public class MyMenuListActivity extends AppCompatActivity
         startActivity(i);
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_refresh, menu);
+        return true;
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
+                return true;
+            case R.id.action_refresh:
+                //empty the list
+                menus.clear();
+                adapter.notifyDataSetChanged();
+
+                //update
+                new MyMenuTask(adapter, this).execute(user.getId());
                 return true;
         }
         return super.onOptionsItemSelected(item);

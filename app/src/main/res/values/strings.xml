@@ -147,4 +147,7 @@
     <!-- units of money -->
     <string name="units_money">€</string>
     <string name="units_calorie">KJ</string>
+
+    <!-- action bar -->
+    <string name="action_refresh">Actualiser</string>
 </resources>

@@ -3,6 +3,7 @@ package app.mbds.fr.unice.appbipper;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -21,8 +22,8 @@ public class ServerActivity extends AppCompatActivity implements View.OnClickLis
     private ListView listView;
 
     //Model
-    private PersonTask mListingTask;
-    private List<Person> person = new ArrayList<>();
+    private PersonItemAdapter adapter;
+    private List<Person> persons = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +32,11 @@ public class ServerActivity extends AppCompatActivity implements View.OnClickLis
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //List
-        PersonItemAdapter adapter = new PersonItemAdapter(this, person, R.layout.person_remove_item_list);
+        adapter = new PersonItemAdapter(this, persons, R.layout.person_remove_item_list);
         listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(adapter);
 
-        mListingTask = new PersonTask(adapter, this);
-        mListingTask.execute();
+        new PersonTask(adapter, this).execute();
 
         // Listener button
         Button addServer = (Button)findViewById(R.id.add_server);
@@ -53,10 +53,25 @@ public class ServerActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     @Override
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_refresh, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
+                return true;
+            case R.id.action_refresh:
+                //empty the list
+                persons.clear();
+                adapter.notifyDataSetChanged();
+
+                //update
+                new PersonTask(adapter, this).execute();
                 return true;
         }
         return super.onOptionsItemSelected(item);

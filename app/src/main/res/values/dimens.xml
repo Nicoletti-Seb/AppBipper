@@ -41,7 +41,7 @@
 
     <dimen name="desc_menu_item_margin">2dp</dimen>
     <dimen name="desc_menu_item_text_desc_size">15dp</dimen>
-    <dimen name="desc_menu_item_text_price_size">24dp</dimen>
+    <dimen name="desc_menu_item_text_price_size">20dp</dimen>
 
     <!-- icon connection dimens -->
     <dimen name="circle_icon_connection_width">100dp</dimen>
@@ -57,7 +57,7 @@
     <dimen name="person_item_padding_left_label">20dp</dimen>
 
     <!-- menu_item_list -->
-    <dimen name="menu_item_ic_size">48dp</dimen>
+    <dimen name="menu_item_ic_size">30dp</dimen>
     <dimen name="menu_item_ic_margin">5dp</dimen>
     <dimen name="menu_item_txt_padding">10dp</dimen>
     <dimen name="menu_item_size_label">20dp</dimen>

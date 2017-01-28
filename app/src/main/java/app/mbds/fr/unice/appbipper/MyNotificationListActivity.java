@@ -2,6 +2,7 @@ package app.mbds.fr.unice.appbipper;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ListView;
 
@@ -18,6 +19,7 @@ public class MyNotificationListActivity extends AppCompatActivity {
     private static final String TAG = "NotificationListActivity";
 
     //Model
+    private NotificationItemAdapter adapter;
     private Person user;
     private List<Notification> notifications = new ArrayList<>();
 
@@ -34,12 +36,20 @@ public class MyNotificationListActivity extends AppCompatActivity {
         /* API NOT WORKING */
 
         //Init list
-       /* NotificationItemAdapter adapter = new NotificationItemAdapter(this, notifications);
-        ListView listView = (ListView) findViewById(android.R.id.list);
+        NotificationItemAdapter adapter = new NotificationItemAdapter(this, notifications);
+        /*ListView listView = (ListView) findViewById(android.R.id.list);
         listView.setAdapter(adapter);
 
 
         new MyNotificationTask(adapter, this).execute();*/
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_refresh, menu);
+        return true;
     }
 
     @Override
@@ -48,6 +58,14 @@ public class MyNotificationListActivity extends AppCompatActivity {
             case android.R.id.home:
                 finish();
                 return true;
+            /*case R.id.action_refresh:
+                //empty the list
+                notifications.clear();
+                adapter.notifyDataSetChanged();
+
+                //update
+                new MyNotificationTask(adapter, this).execute();
+                return true;*/
         }
         return super.onOptionsItemSelected(item);
     }
