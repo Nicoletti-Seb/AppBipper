@@ -44,7 +44,7 @@
         android:layout_toLeftOf="@+id/total_discount_unit"
         android:text="50"
         android:textSize="@dimen/desc_menu_size_label"
-        android:textColor="@android:color/black"/>
+        android:textColor="@color/colorPrimary"/>
 
     <TextView
         android:id="@+id/total_discount_unit"
@@ -54,7 +54,7 @@
         android:layout_alignParentRight="true"
         android:text="@string/units_money"
         android:textSize="@dimen/desc_menu_size_label"
-        android:textColor="@android:color/black"/>
+        android:textColor="@color/colorPrimary"/>
 
     <TextView
         android:id="@+id/text_price"
@@ -76,7 +76,7 @@
         android:layout_alignParentBottom="true"
         android:text="50"
         android:textSize="@dimen/desc_menu_size_label"
-        android:textColor="@android:color/black"/>
+        android:textColor="@color/colorPrimary"/>
 
     <TextView
         android:id="@+id/total_unit"
@@ -86,7 +86,7 @@
         android:layout_alignParentRight="true"
         android:text="@string/units_money"
         android:textSize="@dimen/desc_menu_size_label"
-        android:textColor="@android:color/black"/>
+        android:textColor="@color/colorPrimary"/>
 
 
 </RelativeLayout>

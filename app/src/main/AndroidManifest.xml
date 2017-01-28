@@ -54,7 +54,8 @@
             android:label="@string/title_my_menu_list" />
         <activity
             android:name=".CreateMenuActivity"
-            android:label="@string/title_create_menu" />
+            android:label="@string/title_create_menu"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".DescProduct"
             android:label="@string/title_desc_product" />

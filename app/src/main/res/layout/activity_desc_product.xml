@@ -20,7 +20,7 @@
             android:textSize="@dimen/desc_product_text_size_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"/>
+            android:textColor="@color/colorPrimary"/>
 
         <ImageView
             android:id="@+id/img_image_product"
@@ -64,13 +64,13 @@
                         android:layout_height="wrap_content"
                         android:text="@string/txt_value"
                         android:textSize="@dimen/desc_product_size_text_value"
-                        android:textColor="@android:color/black"/>
+                        android:textColor="@color/colorPrimary"/>
                     <TextView
                         android:text="@string/units_money"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@+id/txt_price_value"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/desc_product_size_text_value"/>
                 </RelativeLayout>
             </TableRow>
@@ -91,14 +91,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/txt_value"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/desc_product_size_text_value"
                         android:layout_span="1"/>
                     <TextView
                         android:text="@string/units_calorie"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/desc_product_size_text_value"
                         android:layout_toRightOf="@id/txt_calories_value"/>
                 </RelativeLayout>
@@ -115,7 +115,7 @@
                 <TextView
                     android:id="@+id/txt_type_value"
                     android:text="@string/txt_value"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/desc_product_size_text_value"/>
             </TableRow>
             <TableRow>
@@ -135,14 +135,14 @@
                         android:text="@string/txt_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/desc_product_size_text_value"/>
                     <TextView
                         android:text="@string/units_money"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@id/txt_discount_value"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/desc_product_size_text_value"/>
                 </RelativeLayout>
             </TableRow>
