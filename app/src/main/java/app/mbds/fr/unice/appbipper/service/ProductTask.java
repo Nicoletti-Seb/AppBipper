@@ -87,10 +87,8 @@ public class ProductTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        Log.i(TAG, "success :" + result);
-
         if(result == null || result.isEmpty()) {
-            Log.i(TAG, "Result " + type + " is empty...");
+            Log.d(TAG, "Result " + type + " is empty...");
             return;
         }
 

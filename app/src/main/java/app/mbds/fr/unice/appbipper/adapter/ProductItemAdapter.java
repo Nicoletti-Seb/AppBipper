@@ -2,6 +2,7 @@ package app.mbds.fr.unice.appbipper.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -26,6 +27,7 @@ public class ProductItemAdapter extends BaseAdapter{
 
     private List<Product> products;
     private Context context;
+    private int choice = -1;
 
     public ProductItemAdapter(Context context, List<Product> products){
         this.context = context;
@@ -47,6 +49,14 @@ public class ProductItemAdapter extends BaseAdapter{
         return 0;
     }
 
+    public void setChoice(int choice){
+        this.choice = choice;
+    }
+
+    public int getChoice(){
+        return this.choice;
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ProductViewHolder viewHolder;
@@ -66,11 +76,19 @@ public class ProductItemAdapter extends BaseAdapter{
             viewHolder = (ProductViewHolder) convertView.getTag();
         }
 
+        updateChoice(position, convertView);
         viewHolder.descriptionBtn.setTag(position);
         viewHolder.title.setText(product.getName());
         return convertView;
     }
 
+    private void updateChoice(int position, View convertView){
+        if(position == choice){
+            convertView.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary));
+        }else{
+            convertView.setBackgroundColor(ContextCompat.getColor(context, android.R.color.transparent));
+        }
+    }
 
     private void initListener(ProductViewHolder viewHolder){
         viewHolder.descriptionBtn.setOnClickListener( new View.OnClickListener(){

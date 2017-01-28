@@ -1,8 +1,6 @@
 package app.mbds.fr.unice.appbipper.service;
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
@@ -15,9 +13,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import app.mbds.fr.unice.appbipper.R;
-import app.mbds.fr.unice.appbipper.RegisterActivity;
 import app.mbds.fr.unice.appbipper.entity.Menu;
-import app.mbds.fr.unice.appbipper.entity.Person;
 
 /**
  * Created by MBDS on 27/11/2016.
@@ -48,7 +44,6 @@ public class CreateMenuTask extends AsyncTask<Menu, Void, Boolean> {
         try {
             URL url = new URL(context.getString(R.string.url_server) + context.getString(R.string.url_service_menu));
             Log.i(TAG, "URL: " + url);
-            Log.i(TAG, "JSON: " + stringJson);
             HttpURLConnection connection = (HttpURLConnection)url.openConnection();
             connection.setRequestProperty("Content-Type", "application/json");
             connection.setRequestProperty("Charset", "UTF-8");
@@ -82,11 +77,12 @@ public class CreateMenuTask extends AsyncTask<Menu, Void, Boolean> {
 
     @Override
     protected void onPostExecute(Boolean bool) {
-        if(bool){
+        //Server execute request but send nothing....
+        //if(bool){
             Toast.makeText(context, R.string.menu_create, Toast.LENGTH_LONG).show();
-        }else{
+        /*}else{
             Toast.makeText(context, R.string.error_toast, Toast.LENGTH_LONG).show();
-        }
+        }*/
     }
 
 }

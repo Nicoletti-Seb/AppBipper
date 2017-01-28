@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,9 +69,27 @@ public class CreateMenuActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         if(R.id.btn_validate_products == v.getId()){
+            if(getProducts().isEmpty()){
+                Toast.makeText(this, R.string.error_products_empty, Toast.LENGTH_LONG).show();
+                return;
+            }
+
             Intent i = new Intent(this, PersonListActivity.class);
             startActivityForResult(i, REQUEST_CODE_ASK_PERSON);
         }
+    }
+
+    private List<Product> getProducts(){
+        List<Product> products = new ArrayList<>();
+        for(ProductListFragment f : productFragments) {
+            Product p = f.getProductSelected();
+            if (p == null) {
+                continue;
+            }
+            products.add(p);
+        }
+
+        return products;
     }
 
     @Override

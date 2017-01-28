@@ -1,11 +1,16 @@
 package app.mbds.fr.unice.appbipper.fragment;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.Checkable;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -16,7 +21,7 @@ import app.mbds.fr.unice.appbipper.adapter.ProductItemAdapter;
 import app.mbds.fr.unice.appbipper.entity.Product;
 import app.mbds.fr.unice.appbipper.service.ProductTask;
 
-public class ProductListFragment extends ListFragment {
+public class ProductListFragment extends Fragment implements AdapterView.OnItemClickListener{
 
     private static final String TAG = "ProductListFragment";
 
@@ -24,7 +29,9 @@ public class ProductListFragment extends ListFragment {
     private List<Product> products;
     private ProductItemAdapter adapter;
     private String name;
-    private Product productSelected;
+
+    //View
+    private ListView listView;
 
     public static ProductListFragment newInstance(String name) {
         ProductListFragment myFragment = new ProductListFragment();
@@ -44,25 +51,23 @@ public class ProductListFragment extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_product_list, container, false);
+        listView = (ListView)view.findViewById(android.R.id.list);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(this);
+
         return view;
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        setListAdapter(adapter);
-    }
-
-    @Override
-    public void onListItemClick (ListView l, View v, int position, long id){
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Log.i(TAG, "Selected position " + position);
-        if(v.isSelected()){
-            v.setSelected(false);
+        if(adapter.getChoice() == position){
+            adapter.setChoice(-1);
         }else{
-            v.setSelected(true);
+            adapter.setChoice(position);
+            view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimary));
         }
-
-        productSelected = products.get(position);
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -72,7 +77,10 @@ public class ProductListFragment extends ListFragment {
     }
 
     public Product getProductSelected(){
-        return productSelected;
+        if(adapter.getChoice() < 0 ){
+            return null;
+        }
+        return products.get(adapter.getChoice());
     }
 
     public List<Product> getProducts(){
