@@ -71,8 +71,6 @@ public class AddKey extends AsyncTask<String, Void, Boolean> {
                     r.append(line);
                 }
                 br.close();
-
-                Log.i(TAG, "Result : " + r.toString());
             }
 
             connection.disconnect();

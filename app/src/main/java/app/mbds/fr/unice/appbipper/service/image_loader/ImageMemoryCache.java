@@ -25,7 +25,6 @@ public class ImageMemoryCache extends LruCache<String, Bitmap> {
     }
 
     protected int sizeOf(String key, Bitmap value) {
-        Log.i(TAG, "Siez " + value.getByteCount() / 1024 );
         return value.getByteCount() / 1024;
     }
 

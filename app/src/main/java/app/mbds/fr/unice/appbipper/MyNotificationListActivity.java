@@ -28,16 +28,18 @@ public class MyNotificationListActivity extends AppCompatActivity {
 
         user = ((BipperApplication)getApplication()).getUser();
 
-        setContentView(R.layout.activity_notification_list);
+        setContentView(R.layout.error_api);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        /* API NOT WORKING */
+
         //Init list
-        NotificationItemAdapter adapter = new NotificationItemAdapter(this, notifications);
+       /* NotificationItemAdapter adapter = new NotificationItemAdapter(this, notifications);
         ListView listView = (ListView) findViewById(android.R.id.list);
         listView.setAdapter(adapter);
 
 
-        new MyNotificationTask(adapter, this).execute();
+        new MyNotificationTask(adapter, this).execute();*/
     }
 
     @Override

@@ -78,8 +78,6 @@ public class NotificationTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        Log.i(TAG, "success :" + result);
-
         if(result == null || result.isEmpty()) {
             Log.i(TAG, "Result menu is empty...");
             return;

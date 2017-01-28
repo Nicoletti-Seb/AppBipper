@@ -62,13 +62,10 @@ public class ProductTask extends AsyncTask<Void, Void, String> {
             connection.connect();
 
             int codeResponse = connection.getResponseCode();
-            Log.i(TAG, "codeResponse :" + codeResponse);
             if( 200 <= codeResponse && codeResponse < 300 ){
-                Log.i(TAG, "Response OK");
                 BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 String line = null;
                 while((line = br.readLine()) != null){
-                    Log.i(TAG, "Line " + line);
                     result.append(line);
                 }
                 br.close();
@@ -96,8 +93,6 @@ public class ProductTask extends AsyncTask<Void, Void, String> {
         Type listType = new TypeToken<ArrayList<Product>>() {}.getType();
         List<Product> list = new Gson().fromJson(result, listType);
         productItemAdapter.getProducts().addAll(list);
-
-        Log.i(TAG, type + " size " + productItemAdapter.getProducts().size());
         productItemAdapter.notifyDataSetChanged();
     }
 }

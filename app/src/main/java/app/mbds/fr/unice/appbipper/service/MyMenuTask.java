@@ -60,7 +60,6 @@ public class MyMenuTask extends AsyncTask<String, Void, String> {
             connection.connect();
 
             int codeResponse = connection.getResponseCode();
-            Log.i(TAG, "codeResponse :" + codeResponse);
             if( 200 <= codeResponse && codeResponse < 300 ){
                 BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 String line = null;
@@ -83,8 +82,6 @@ public class MyMenuTask extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        Log.i(TAG, "success :" + result);
-
         if(result == null || result.isEmpty()) {
             Log.i(TAG, "Result menu is empty...");
             return;

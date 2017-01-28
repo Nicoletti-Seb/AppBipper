@@ -90,8 +90,6 @@ public class BuzzTask extends AsyncTask<Person, Void, Boolean> {
                     r.append(line);
                 }
                 br.close();
-
-                Log.i(TAG, "Result : " + r.toString());
             }
 
             connection.disconnect();

@@ -1,88 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_menu"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_width="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="app.mbds.fr.unice.appbipper.MenuActivity">
-
-    <TextView
-        android:id="@+id/welcome"
+    <RelativeLayout
+        android:id="@+id/activity_menu"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="@string/welcome"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        android:gravity="center|bottom"/>
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button_list"
-        android:layout_below="@id/welcome"
-        android:text="@string/menu_servers"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/custom_button_white"
-        android:layout_marginTop="@dimen/menu_margin_component_top"
-        android:layout_marginBottom="@dimen/menu_margin_component_bottom"
-        style="@style/button_white" />
+        <TextView
+            android:id="@+id/welcome"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/welcome"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            android:gravity="center|bottom"/>
 
-    <Button
-        android:id="@+id/button_create_menu"
-        android:layout_below="@+id/button_list"
-        android:text="@string/menu_create_menu"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/custom_button_white"
-        android:layout_marginTop="@dimen/menu_margin_component_top"
-        android:layout_marginBottom="@dimen/menu_margin_component_bottom"
-        style="@style/button_white" />
+        <Button
+            android:id="@+id/button_list"
+            android:layout_below="@id/welcome"
+            android:text="@string/menu_servers"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_button_white"
+            android:layout_marginTop="@dimen/menu_margin_component_top"
+            android:layout_marginBottom="@dimen/menu_margin_component_bottom"
+            style="@style/button_white" />
 
-    <Button
-        android:id="@+id/button_all_menus"
-        android:layout_below="@+id/button_create_menu"
-        android:text="@string/menu_all_menu"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/custom_button_white"
-        android:layout_marginTop="@dimen/menu_margin_component_top"
-        android:layout_marginBottom="@dimen/menu_margin_component_bottom"
-        style="@style/button_white" />
+        <Button
+            android:id="@+id/button_create_menu"
+            android:layout_below="@+id/button_list"
+            android:text="@string/menu_create_menu"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_button_white"
+            android:layout_marginTop="@dimen/menu_margin_component_top"
+            android:layout_marginBottom="@dimen/menu_margin_component_bottom"
+            style="@style/button_white" />
 
-    <Button
-        android:id="@+id/button_my_menu"
-        android:layout_below="@+id/button_all_menus"
-        android:text="@string/menu_my_menu"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/custom_button_white"
-        android:layout_marginTop="@dimen/menu_margin_component_top"
-        android:layout_marginBottom="@dimen/menu_margin_component_bottom"
-        style="@style/button_white" />
+        <Button
+            android:id="@+id/button_all_menus"
+            android:layout_below="@+id/button_create_menu"
+            android:text="@string/menu_all_menu"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_button_white"
+            android:layout_marginTop="@dimen/menu_margin_component_top"
+            android:layout_marginBottom="@dimen/menu_margin_component_bottom"
+            style="@style/button_white" />
 
-    <Button
-        android:id="@+id/button_all_notifications"
-        android:layout_below="@+id/button_my_menu"
-        android:text="@string/menu_all_notifications"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/custom_button_white"
-        android:layout_marginTop="@dimen/menu_margin_component_top"
-        android:layout_marginBottom="@dimen/menu_margin_component_bottom"
-        style="@style/button_white" />
+        <Button
+            android:id="@+id/button_my_menu"
+            android:layout_below="@+id/button_all_menus"
+            android:text="@string/menu_my_menu"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_button_white"
+            android:layout_marginTop="@dimen/menu_margin_component_top"
+            android:layout_marginBottom="@dimen/menu_margin_component_bottom"
+            style="@style/button_white" />
 
-    <Button
-        android:id="@+id/button_my_notifications"
-        android:layout_below="@+id/button_all_notifications"
-        android:text="@string/menu_my_notifications"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/custom_button_white"
-        android:layout_marginTop="@dimen/menu_margin_component_top"
-        android:layout_marginBottom="@dimen/menu_margin_component_bottom"
-        style="@style/button_white" />
+        <Button
+            android:id="@+id/button_all_notifications"
+            android:layout_below="@+id/button_my_menu"
+            android:text="@string/menu_all_notifications"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_button_white"
+            android:layout_marginTop="@dimen/menu_margin_component_top"
+            android:layout_marginBottom="@dimen/menu_margin_component_bottom"
+            style="@style/button_white" />
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/button_my_notifications"
+            android:layout_below="@+id/button_all_notifications"
+            android:text="@string/menu_my_notifications"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_button_white"
+            android:layout_marginTop="@dimen/menu_margin_component_top"
+            android:layout_marginBottom="@dimen/menu_margin_component_bottom"
+            style="@style/button_white" />
+
+    </RelativeLayout>
+</ScrollView>
