@@ -37,13 +37,12 @@ public class MyMenuListActivity extends AppCompatActivity
 
         user = ((BipperApplication)getApplication()).getUser();
 
-        setContentView(R.layout.error_api);
+        setContentView(R.layout.activity_menu_list);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        /* API NOT WORKING */
 
         //Init list
-        /*MenuItemAdapter adapter = new MenuItemAdapter(this, menus);
+        MenuItemAdapter adapter = new MenuItemAdapter(this, menus);
         ListView listView = (ListView) findViewById(android.R.id.list);
         listView.setOnItemClickListener(this);
         listView.setAdapter(adapter);
@@ -53,7 +52,7 @@ public class MyMenuListActivity extends AppCompatActivity
 
         //init listener button
         btnAddProducts = (ImageButton) findViewById(R.id.menu_List_add);
-        btnAddProducts.setOnClickListener(this);*/
+        btnAddProducts.setOnClickListener(this);
     }
 
     @Override

@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
@@ -88,8 +89,10 @@ public class MyMenuTask extends AsyncTask<String, Void, String> {
         }
 
         //https://static.javadoc.io/com.google.code.gson/gson/2.6.2/com/google/gson/reflect/TypeToken.html
+        Gson gson = new Gson();
+        JsonObject jsonObject = gson.fromJson( result, JsonObject.class);
         Type listType = new TypeToken<ArrayList<Menu>>() {}.getType();
-        List<Menu> list = new Gson().fromJson(result, listType);
+        List<Menu> list = gson.fromJson(jsonObject.get("menus"), listType);;
         menuItemAdapter.getMenus().addAll(list);
         menuItemAdapter.notifyDataSetChanged();
     }
