@@ -2,6 +2,7 @@ package app.mbds.fr.unice.appbipper.service;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -73,11 +74,15 @@ public class PersonTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String theResponse) {
-        //https://static.javadoc.io/com.google.code.gson/gson/2.6.2/com/google/gson/reflect/TypeToken.html
-        Type listType = new TypeToken<ArrayList<Person>>() {}.getType();
-        List<Person> list = new Gson().fromJson(theResponse, listType);
-        personItemAdapter.getPerson().addAll(list);
-        personItemAdapter.notifyDataSetChanged();
+        try{
+            //https://static.javadoc.io/com.google.code.gson/gson/2.6.2/com/google/gson/reflect/TypeToken.html
+            Type listType = new TypeToken<ArrayList<Person>>() {}.getType();
+            List<Person> list = new Gson().fromJson(theResponse, listType);
+            personItemAdapter.getPerson().addAll(list);
+            personItemAdapter.notifyDataSetChanged();
+        }catch(Exception e){
+            Toast.makeText(context, R.string.error_parse_json, Toast.LENGTH_SHORT).show();
+        }
 
     }
 }

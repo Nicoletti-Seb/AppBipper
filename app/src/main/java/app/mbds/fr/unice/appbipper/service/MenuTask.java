@@ -11,18 +11,15 @@ import com.google.gson.reflect.TypeToken;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
 import app.mbds.fr.unice.appbipper.R;
 import app.mbds.fr.unice.appbipper.adapter.MenuItemAdapter;
 import app.mbds.fr.unice.appbipper.entity.Menu;
-import app.mbds.fr.unice.appbipper.entity.Product;
 
 /**
  * Created by MBDS on 27/11/2016.
@@ -85,11 +82,16 @@ public class MenuTask extends AsyncTask<Void, Void, String> {
             return;
         }
 
-        //https://static.javadoc.io/com.google.code.gson/gson/2.6.2/com/google/gson/reflect/TypeToken.html
-        Type listType = new TypeToken<ArrayList<Menu>>() {}.getType();
-        List<Menu> list = new Gson().fromJson(result, listType);
-        menuItemAdapter.getMenus().addAll(list);
-        menuItemAdapter.notifyDataSetChanged();
+        try{
+            //https://static.javadoc.io/com.google.code.gson/gson/2.6.2/com/google/gson/reflect/TypeToken.html
+            Type listType = new TypeToken<ArrayList<Menu>>() {}.getType();
+            List<Menu> list = new Gson().fromJson(result, listType);
+            menuItemAdapter.getMenus().addAll(list);
+            menuItemAdapter.notifyDataSetChanged();
+        }catch(Exception e){
+            Toast.makeText(context, R.string.error_parse_json, Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 }

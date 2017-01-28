@@ -129,7 +129,9 @@
     <string name="error_toast">Une erreur c\'est produite....</string>
     <string name="error_internet">Vous devez être connecté à internet...</string>
     <string name="error_products_empty">Vous n\'avez sélectionné aucun produit...</string>
-<string name="api_not_working">API NOT WORKING !</string>
+    <string name="error_parse_json">Erreur: lecture du json</string>
+    <string name="api_not_working">API NOT WORKING !</string>
+
 
     <!-- desc_menu -->
     <string name="desc_menu_total_remise">Total Remise : </string>

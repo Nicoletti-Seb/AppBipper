@@ -3,6 +3,7 @@ package app.mbds.fr.unice.appbipper.service;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -87,14 +88,17 @@ public class MyMenuTask extends AsyncTask<String, Void, String> {
             Log.i(TAG, "Result menu is empty...");
             return;
         }
-
-        //https://static.javadoc.io/com.google.code.gson/gson/2.6.2/com/google/gson/reflect/TypeToken.html
-        Gson gson = new Gson();
-        JsonObject jsonObject = gson.fromJson( result, JsonObject.class);
-        Type listType = new TypeToken<ArrayList<Menu>>() {}.getType();
-        List<Menu> list = gson.fromJson(jsonObject.get("menus"), listType);;
-        menuItemAdapter.getMenus().addAll(list);
-        menuItemAdapter.notifyDataSetChanged();
+        try{
+            //https://static.javadoc.io/com.google.code.gson/gson/2.6.2/com/google/gson/reflect/TypeToken.html
+            Gson gson = new Gson();
+            JsonObject jsonObject = gson.fromJson( result, JsonObject.class);
+            Type listType = new TypeToken<ArrayList<Menu>>() {}.getType();
+            List<Menu> list = gson.fromJson(jsonObject.get("menus"), listType);;
+            menuItemAdapter.getMenus().addAll(list);
+            menuItemAdapter.notifyDataSetChanged();
+        }catch(Exception e){
+            Toast.makeText(context, R.string.error_parse_json, Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
