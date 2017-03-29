@@ -7,17 +7,13 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-
 
 import app.mbds.fr.unice.appbipper.R;
 import app.mbds.fr.unice.appbipper.adapter.PersonItemAdapter;
@@ -39,35 +35,36 @@ public class PersonTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(Void... params) {
-        //Effectuer la requete vers les WS ici
-        String url = context.getResources().getString(R.string.url_server);
-        String service = context.getResources().getString(R.string.url_service_person);
-        String urlList = url + service;
-
+        StringBuilder result = new StringBuilder();
         try {
-            HttpClient client = new DefaultHttpClient();
-            HttpGet get = new HttpGet(urlList);
+            String server = context.getResources().getString(R.string.url_server);
+            String service = context.getResources().getString(R.string.url_service_person);
 
-            //addHeader
-            get.setHeader("Content-Type", "application/json");
+            URL url = new URL( server + service);
 
-            HttpResponse response = client.execute(get);
-            System.out.println("\nSending 'GET' request to URL : " + urlList);
-            System.out.println("Response Code : " + response.getStatusLine().getStatusCode());
+            HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+            connection.setRequestProperty("Accept", "application/json");
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("Content-length", "0");
+            connection.setAllowUserInteraction(false);
+            connection.connect();
 
-            BufferedReader rd = new BufferedReader(
-                    new InputStreamReader(response.getEntity().getContent()));
-
-            StringBuffer result = new StringBuffer();
-            String line = "";
-            while ((line = rd.readLine()) != null) {
-                result.append(line);
+            int codeResponse = connection.getResponseCode();
+            if( 200 <= codeResponse && codeResponse < 300 ){
+                BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                String line = null;
+                while((line = br.readLine()) != null){
+                    result.append(line);
+                }
+                br.close();
             }
 
-            System.out.println(result.toString());
-            return result.toString();
+            //Close
+            connection.disconnect();
 
+            return result.toString();
         } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }
